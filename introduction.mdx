@@ -1,71 +1,173 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: Advanced Queries
+description: 'Master advanced query usage in InstaAITools'
 ---
 
 <img
   className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
+  src="/images/advanced-light.svg"
+  alt="Advanced Light"
 />
 <img
   className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
+  src="/images/advanced-dark.svg"
+  alt="Advanced Dark"
 />
 
-## Setting up
+## Introduction
+Welcome to the **InstaAITools Advanced Queries Documentation** — your guide to writing powerful, flexible, and optimized queries.
 
-The first step to world-class documentation is setting up your editing environments.
+Learn how to use:
+- Logical and relational operators
+- Text search capabilities
+- AI-augmented queries
+- Sorting & pagination
+- Complex multi-condition filters
+
+## Getting Started
+Set up your environment for editing, testing, and implementing advanced queries.
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Docs"
+    title="Query Basics"
     icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
+    href="#basic-structure"
   >
-    Get your docs set up locally for easy development
+    Understand the core structure of a query and learn how to build from scratch.
   </Card>
   <Card
-    title="Preview Changes"
+    title="Testing Queries"
     icon="image"
-    href="https://mintlify.com/docs/development"
+    href="#examples"
   >
-    Preview your changes before you push to make sure they're perfect
+    Try out example queries and validate results before implementing them.
   </Card>
 </CardGroup>
 
-## Make it yours
-
-Update your docs to your brand and add valuable content for the best user conversion.
+## Core Concepts
+Customize your queries, integrate advanced operators, and ensure maximum flexibility.
 
 <CardGroup cols={2}>
   <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
+    title="Filter Operators"
+    icon="filter"
+    href="#filter-operators"
   >
-    Customize your docs to your company's colors and brands
+    Learn all comparison, range, and logical filter operators.
   </Card>
   <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    title="Text Search"
+    icon="magnifying-glass"
+    href="#text-operators"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Implement contains, startsWith, and semantic search.
   </Card>
   <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
+    title="Sorting & Pagination"
+    icon="bars"
+    href="#sorting"
   >
-    Build interactive features and designs to guide your users
+    Add pagination and sort large datasets efficiently.
   </Card>
   <Card
-    title="Get Inspiration"
+    title="AI Queries"
     icon="stars"
-    href="https://mintlify.com/customers"
+    href="#ai-queries"
   >
-    Check out our showcase of our favorite documentation
+    Use AI-powered semantic and intent-based queries.
   </Card>
 </CardGroup>
+
+## Basic Structure {#basic-structure}
+```ts
+GET /api/query?filter={...}&sort={...}&page=1&pageSize=20
+```
+
+## Filter Operators {#filter-operators}
+### Equality
+```json
+{"field": "value"}
+```
+
+### Not equal
+```json
+{"field": {"$ne": "value"}}
+```
+
+### Range
+```json
+{"age": {"$gt": 18, "$lt": 50}}
+```
+
+### In / Not in
+```json
+{"status": {"$in": ["active", "pending"]}}
+```
+
+## Text Operators {#text-operators}
+### Contains
+```json
+{"name": {"$contains": "john"}}
+```
+
+### Starts with
+```json
+{"email": {"$startsWith": "admin"}}
+```
+
+### Full-text search
+```json
+{"$search": "neural networks"}
+```
+
+## Logical Operators
+### OR
+```json
+{"$or": [{"status": "active"}, {"status": "pending"}]}
+```
+
+### NOT
+```json
+{"$not": {"archived": true}}
+```
+
+## Sorting & Pagination {#sorting}
+```json
+{"sort": {"createdAt": "desc"}, "page": 1, "pageSize": 20}
+```
+
+## AI Queries {#ai-queries}
+### Semantic Search
+```json
+{"$semantic": "find posts about automation"}
+```
+
+### AI Filter Suggestion
+```json
+{"$aiFilter": "high engagement users"}
+```
+
+## Examples {#examples}
+```json
+{
+  "$or": [
+    {"category": {"$in": ["ai", "automation"]}},
+    {"$search": "workflow optimization"}
+  ],
+  "published": true,
+  "createdAt": {"$gt": "2024-01-01"},
+  "sort": {"createdAt": "desc"},
+  "page": 1,
+  "pageSize": 50
+}
+```
+
+## FAQ
+#### Why is my query returning no results?
+Check spelling, remove nested groups, or simplify conditions.
+
+#### Are AI queries slower?
+Yes, because they require vector or LLM processing.
+
+## Support
+Need help? Reach out at **support@instaaitools.com**.
