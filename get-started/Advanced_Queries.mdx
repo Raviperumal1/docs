@@ -1,0 +1,173 @@
+---
+title: Advanced_Queries
+description: 'Master advanced query usage in InstaAITools'
+---
+
+<img
+  className="block dark:hidden"
+  src="/images/advanced-light.svg"
+  alt="Advanced Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/advanced-dark.svg"
+  alt="Advanced Dark"
+/>
+
+## Introduction
+Welcome to the **InstaAITools Advanced Queries Documentation** — your guide to writing powerful, flexible, and optimized queries.
+
+Learn how to use:
+- Logical and relational operators
+- Text search capabilities
+- AI-augmented queries
+- Sorting & pagination
+- Complex multi-condition filters
+
+## Getting Started
+Set up your environment for editing, testing, and implementing advanced queries.
+
+<CardGroup cols={2}>
+  <Card
+    title="Query Basics"
+    icon="pen-to-square"
+    href="#basic-structure"
+  >
+    Understand the core structure of a query and learn how to build from scratch.
+  </Card>
+  <Card
+    title="Testing Queries"
+    icon="image"
+    href="#examples"
+  >
+    Try out example queries and validate results before implementing them.
+  </Card>
+</CardGroup>
+
+## Core Concepts
+Customize your queries, integrate advanced operators, and ensure maximum flexibility.
+
+<CardGroup cols={2}>
+  <Card
+    title="Filter Operators"
+    icon="filter"
+    href="#filter-operators"
+  >
+    Learn all comparison, range, and logical filter operators.
+  </Card>
+  <Card
+    title="Text Search"
+    icon="magnifying-glass"
+    href="#text-operators"
+  >
+    Implement contains, startsWith, and semantic search.
+  </Card>
+  <Card
+    title="Sorting & Pagination"
+    icon="bars"
+    href="#sorting"
+  >
+    Add pagination and sort large datasets efficiently.
+  </Card>
+  <Card
+    title="AI Queries"
+    icon="stars"
+    href="#ai-queries"
+  >
+    Use AI-powered semantic and intent-based queries.
+  </Card>
+</CardGroup>
+
+## Basic Structure {#basic-structure}
+```ts
+GET /api/query?filter={...}&sort={...}&page=1&pageSize=20
+```
+
+## Filter Operators {#filter-operators}
+### Equality
+```json
+{"field": "value"}
+```
+
+### Not equal
+```json
+{"field": {"$ne": "value"}}
+```
+
+### Range
+```json
+{"age": {"$gt": 18, "$lt": 50}}
+```
+
+### In / Not in
+```json
+{"status": {"$in": ["active", "pending"]}}
+```
+
+## Text Operators {#text-operators}
+### Contains
+```json
+{"name": {"$contains": "john"}}
+```
+
+### Starts with
+```json
+{"email": {"$startsWith": "admin"}}
+```
+
+### Full-text search
+```json
+{"$search": "neural networks"}
+```
+
+## Logical Operators
+### OR
+```json
+{"$or": [{"status": "active"}, {"status": "pending"}]}
+```
+
+### NOT
+```json
+{"$not": {"archived": true}}
+```
+
+## Sorting & Pagination {#sorting}
+```json
+{"sort": {"createdAt": "desc"}, "page": 1, "pageSize": 20}
+```
+
+## AI Queries {#ai-queries}
+### Semantic Search
+```json
+{"$semantic": "find posts about automation"}
+```
+
+### AI Filter Suggestion
+```json
+{"$aiFilter": "high engagement users"}
+```
+
+## Examples {#examples}
+```json
+{
+  "$or": [
+    {"category": {"$in": ["ai", "automation"]}},
+    {"$search": "workflow optimization"}
+  ],
+  "published": true,
+  "createdAt": {"$gt": "2024-01-01"},
+  "sort": {"createdAt": "desc"},
+  "page": 1,
+  "pageSize": 50
+}
+```
+
+## FAQ
+#### Why is my query returning no results?
+Check spelling, remove nested groups, or simplify conditions.
+
+#### Are AI queries slower?
+Yes, because they require vector or LLM processing.
+
+## Support
+Need help? Reach out at **support@instaaitools.com**.
