@@ -49,11 +49,10 @@
     }
   ],
   "navigation": [
-
     {
       "group": "Get Started",
       "pages": [
-        "Advanced-Queries",
+        "introduction",
         "quickstart",
         "development"
       ]
