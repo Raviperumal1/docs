@@ -59,6 +59,12 @@
       ]
     },
     {
+      "group": "FAQs",
+      "pages": [
+        "faq/advanced_credit_rules"
+      ]
+    },
+    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",
