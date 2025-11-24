@@ -59,9 +59,28 @@
       ]
     },
     {
-      "group": "FAQs",
-      "pages": [
-        "faq/advanced_credit_rules"
+      "languages": [
+        {
+          "language": "en",
+          "group": "FAQs",
+            "pages": [
+              "faq/lang/english"
+            ]
+        },
+        {
+          "language": "hindi",
+          "group": "FAQs",
+            "pages": [
+              "faq/lang/hindi"
+            ]
+        },
+        {
+          "language": "tamil",
+          "group": "FAQs",
+            "pages": [
+              "faq/lang/tamil"
+            ]
+        }
       ]
     },
     {
