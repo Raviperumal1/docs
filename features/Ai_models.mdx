@@ -1,0 +1,71 @@
+---
+title: "AI Models — Basic & Advanced"
+description: "Overview of the most widely used basic and advanced AI models available today, their strengths, modalities and use-cases."
+slug: /features/ai-hub/models-overview
+sidebar_position: 4
+---
+
+# AI Models — Basic & Advanced
+
+This page summarises popular AI models that are commonly used in modern AI assistants, categorised into **Basic Models** (lighter, faster, lower cost) and **Advanced Models** (higher reasoning, multimodal, large context windows). Use this guide to help select the right model for your task.
+
+<Info>
+Model names, capabilities and availability change quickly — always refer to the provider’s documentation for the latest details.
+</Info>
+
+---
+
+## Basic Models
+
+These models are well-suited for standard tasks such as chat, simple question-answering, rewriting, and lighter workloads.
+
+| Model | Developer | Key Features | Best Use-Cases |
+|-------|-----------|-------------|--------------|
+| GPT‑3.5 | OpenAI | Text-only, cost-efficient | Basic chatbots, rewriting, content generation |
+| o1‑mini | OpenAI | Smaller “mini” version, lower compute | Embedded agents, quick replies |
+| Llama 3 | Meta AI | Open-weight version, moderate size | Research projects, internal tooling |
+| Qwen2 | Alibaba Cloud | Text & vision input, Chinese & multilingual | Multilingual chat, vision-enabled apps |
+| Claude 3 Haiku | Anthropic | Balanced reasoning + cost | Chat assistants, safety-optimized tasks |
+
+---
+
+## Advanced Models
+
+These are higher-end models with multimodal input (text, image, sometimes audio), longer memory/context, advanced reasoning and higher cost. Use them when depth and complexity matter.
+
+| Model | Developer | Key Features | Best Use-Cases |
+|-------|-----------|-------------|--------------|
+| GPT‑4o | OpenAI | Multimodal (text + image + audio support), large context window. :contentReference[oaicite:11]{index=11} | Complex document analysis, image+text tasks, multi-step workflows |
+| Claude 3.5 Sonnet | Anthropic | Improved reasoning, lower cost vs flagship models :contentReference[oaicite:13]{index=13} | Multi-step reasoning, safer outputs, enterprise assistants |
+| Gemini 2.5 Pro | Google DeepMind | Strong multimodal reasoning (according to reports) :contentReference[oaicite:16]{index=16} | Agentic tasks, tool chaining, vision+text flows |
+| Qwen3‑Max | Alibaba Cloud | Large context, multilingual, open-weight focus :contentReference[oaicite:18]{index=18} | Research, multilingual apps, large document workflows |
+| o3‑mini | OpenAI | “Reasoning” model variant, improved step-by-step logic :contentReference[oaicite:20]{index=20} | Math/science reasoning, chain-of-thought tasks |
+
+---
+
+## Choosing the Right Model for Your Task
+
+When selecting a model, consider:
+
+- **Modalities needed**: Do you need image/audio support or just text? Choose a multimodal model if yes.
+- **Context length**: Long documents or multi-step tasks require large context windows.
+- **Reasoning complexity**: For deep reasoning, chain of thought or research, pick advanced models.
+- **Cost & latency**: Basic models are cheaper and faster; advanced models cost more and may have slower responses.
+- **Safety & reliability**: Some models prioritise safer outputs or fewer hallucinations (e.g., Claude family).
+- **Availability & licensing**: Some models are open-weight/open-source; others are proprietary APIs with usage costs.
+
+---
+
+## How InstaAiTools Uses Models
+
+InstaAiTools automatically selects a default model based on your plan and the task type. You can override and pick a specific model when:
+
+- Uploading large documents for analysis
+- Combining image, audio, and text sources
+- Running multi-step agentic workflows
+
+Advanced models may consume more credits (refer to your Pricing & Credits page).
+
+---
+
+*Last updated: November 25, 2025*

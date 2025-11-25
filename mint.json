@@ -60,7 +60,8 @@
       "group": "Features",
       "pages": [
         "features/chat",
-        "features/chatpdf"
+        "features/chatpdf",
+        "features/ai_models"
       ]
     },
     {
