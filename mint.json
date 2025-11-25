@@ -59,13 +59,12 @@
       ]
     },
     {
-      "group": "Languages",
+      "group": "FAQs",
       "pages": [
-        "faq/lang/english",
-        "faq/lang/hindi",
-        "faq/lang/tamil"
+        "faq/advanced_credit_rules"
       ]
     },
+
     {
       "group": "Essentials",
       "pages": [
