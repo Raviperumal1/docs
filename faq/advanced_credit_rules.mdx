@@ -1,66 +1,247 @@
 ---
-title: "Rules for using Advanced Queries"
-description: "Understand how advanced query credits and usage work in Instaai."
+title: "Rules for Using Advanced Queries"
+description: "Learn how Advanced Queries work inside InstaAiTools — usage limits, credits, billing, supported actions, and best practices."
+slug: /faqs/rules-for-using-advanced-queries
+sidebar_position: 6
 ---
 
-# Rules for using Advanced Queries
+# Rules for Using Advanced Queries
 
-Effective Date: December 1, 2025
+Effective Date: September 12, 2024
 
-To better support features with varying cost levels and enhance the flexibility of Instaai’s pricing plans, advanced credits have been introduced. These credits allow you to use more advanced features and reset monthly.
+Advanced Queries in **InstaAiTools** enable powerful capabilities like deep research, file analysis, data extraction, extended web reasoning, and advanced model operations.
+This page explains how Advanced Queries work, how credits are consumed, plan allocations, pricing, and how to optimize usage.
 
-## Monthly Advanced Credits for Subscription Plans
-
-Advanced credits are **only available to subscribers**. Without a subscription, you cannot earn or use advanced credits. Subscribers receive a fixed number of advanced credits monthly in addition to the basic query allowance.
-
-| Plan      | Basic Queries | Advanced Credits         |
-| --------- | ------------- | ------------------------ |
-| Free      | 40/day        | 0                        |
-| Pro       | 5,000/month   | 200/month (+1,500 extra) |
-| Unlimited | Unlimited\*   | 4,500/month              |
-
-\* The “Unlimited” plan still includes technical protections: 1,600 unrestricted advanced model queries/month + 12,000 basic queries/month. When these quotas are depleted, further usage is restricted to ~100/day.
-
-## Purchasing Extra Advanced Credits
-
-If you run out of advanced credits, you may purchase more:
-
-| Credits | Price   |
-| ------- | ------- |
-| 4,000   | US\$10  |
-| 12,000  | US\$30  |
-| 40,000  | US\$100 |
-
-## Image Generation & Credit Consumption
-
-The counting method for image generation has been updated. Instead of counting by “instances,” usage is now tracked by **advanced credit consumption**, which varies by model.
-
-For example, generating one image using the **SDXL** model consumes **3 advanced credits**.
-
-Here’s how many images you could generate if you used all of your advanced credits for this purpose:
-
-- **Free plan:** ~4 images (trial)
-- **Pro plan:** ~500 images/month
-- **Unlimited plan:** ~1,500 images/month
-
-## Chat Context, Modes & Trimming
-
-With advanced credits, Insta ai now offers two chat modes:
-
-### Smart Trimming (Default)
-
-Context is automatically trimmed based on chat content to maintain quality responses while controlling usage. This mode uses both basic and advanced query counts depending on the model.
-
-### Custom Limit
-
-Available only to members. You can choose to retain full context or manually set a trimming limit. This consumes advanced credits per query.
-
-## Important Notes
-
-- System prompts count toward total context length. Disabling unnecessary chat skills can reduce usage.
-- Longer conversations use more context. Starting new chats periodically helps manage consumption.
-- Copying large files or using full-text reading mode is supported but consumes advanced credits.
+<Info>
+Advanced Queries are only triggered when a task requires additional computation, external retrieval, or advanced tool usage. Standard chat messages do not use Advanced Query credits.
+</Info>
 
 ---
 
-If you want, I can convert this page into a **Mintlify multi-language version**, or format it to match your entire docs style.
+## What Are Advanced Queries?
+
+Advanced Queries are special operations where InstaAiTools must:
+
+- Retrieve or analyze external information
+- Perform multi-step reasoning
+- Process long or structured files
+- Execute tool-assisted operations
+- Run extended multi-source web searches
+- Handle image, audio, or document-based reasoning
+- Use high-context or high-compute LLM capabilities
+
+These require higher compute resources and therefore consume **Advanced Query Credits**.
+
+---
+
+## When Does an Advanced Query Activate?
+
+InstaAiTools automatically detects when a query qualifies as “advanced.”
+
+### **1. Requests requiring updated online information**
+Examples:
+- “What are today’s crypto gainers?”
+- “Summarize today’s AI news.”
+
+### **2. Deep PDF/document analysis**
+Examples:
+- “Extract all tables from this 20-page report.”
+- “Identify sections discussing renewal policies.”
+
+### **3. Multi-step research**
+Examples:
+- “Compare data from these three sources.”
+- “Summarize pros/cons of two competing platforms.”
+
+### **4. Data processing**
+Examples:
+- Parse CSV
+- Clean a dataset
+- Identify trends in an Excel sheet
+
+### **5. File-based reasoning**
+Examples:
+- “Extract values from this invoice.”
+- “Explain this screenshot or chart.”
+
+---
+
+## What Does *Not* Count as an Advanced Query?
+
+These remain **standard chat** and cost **0 credits**:
+
+- Simple questions
+- Writing, rewriting, tone editing
+- Grammar correction
+- Short summaries
+- Code debugging for small snippets
+- Basic reasoning that does not require external tools
+
+---
+
+# Monthly Advanced Credits by Subscription Plan
+
+| Subscription Plan | Basic Queries | Advanced Query Credits |
+|-------------------|--------------|------------------------|
+| Free              | 40/day       | 0                      |
+| Pro               | 5,000/month  | 200/month              |
+| Unlimited         | Unlimited*   | 4,500/month            |
+
+\* *Unlimited plan still includes fair-use policies to ensure service stability.*
+
+---
+
+# Add-on Credits Purchase Pricing
+
+| Credits | Price |
+|--------|-------|
+| 4,000  | US$ 10 |
+| 12,000 | US$ 30 |
+| 40,000 | US$ 100 |
+
+---
+
+# Billing Rules for Advanced Credit Consumption
+
+## Text Generation & Processing
+
+| Feature                          | Model                            | Credits per 1K tokens |
+|----------------------------------|----------------------------------|------------------------|
+| Chat with **Custom Context Limit** | GPT-4o Mini, Claude 3 Haiku, etc. | 0.2 |
+| Chat with top-tier model         | GPT-4o, etc.                     | 2   |
+
+---
+
+## AI Translation
+
+| Service Provider | Credits per 1K tokens |
+|------------------|------------------------|
+| OpenAI           | 0.5                    |
+| Claude           | 0.5                    |
+| DeepL            | 0.1                    |
+| Google Translate | Free                   |
+| Bing Translate   | Free                   |
+
+---
+
+## Image Generation & Processing
+
+| Feature                                                   | Credits per operation |
+|-----------------------------------------------------------|------------------------|
+| Stable Diffusion 3.5                                      | 65                     |
+| Flux Pro 1.1 Ultra                                        | 40                     |
+| DALL·E 3                                                  | 30                     |
+| Background Removal / Inpainting / Object Removal / etc.   | 24                     |
+
+---
+
+## Video Generation & Processing
+
+| Feature        | Credits per operation |
+|----------------|------------------------|
+| SVD            | 25                     |
+| Veo 2          | 500                    |
+| Runway Gen-3   | 200                    |
+
+---
+
+# Chat Context Management
+
+InstaAiTools supports two context modes:
+
+### **Smart Trimming (Default)**
+The system automatically trims previous messages to optimize credit usage.
+
+### **Custom Limit**
+You choose how much context is preserved.
+This mode **consumes Advanced Query Credits** based on token count.
+
+**Important Notes:**
+
+- System prompts also count toward context size
+- Long conversations increase compute usage
+- Start a new chat to reset context
+- Maximum supported context depends on model (e.g., GPT-4o supports ~128k tokens)
+
+---
+
+# How Are Advanced Query Credits Counted?
+
+Each advanced operation deducts **1 credit**, regardless of:
+
+- Output length
+- Model scale
+- File size (unless extremely large)
+- Complexity of process
+
+### **Batch operations**
+Uploading multiple files may trigger **multiple** advanced operations.
+
+---
+
+# How to Check Remaining Credits
+
+Go to:
+
+**InstaAiTools → Settings → Usage → Advanced Query Credits**
+
+You can view:
+
+- Remaining credits
+- Daily limits
+- Monthly allocation
+- Next reset date
+
+Credits auto-reset each billing cycle.
+
+---
+
+# Tips to Avoid Wasting Credits
+
+### **1. Be specific**
+❌ “Summarize this.”
+✔️ “Summarize this PDF in 8–10 bullet points focusing on financial performance.”
+
+### **2. Avoid repeating the same request**
+Use:
+- **Quote**
+- **Follow-up prompts**
+- **Refine output**
+
+### **3. Split large documents**
+Analyze sections instead of entire files to reduce triggers.
+
+### **4. Use standard chat for simple tasks**
+Do not use advanced mode unless necessary.
+
+---
+
+# Common Questions
+
+### **Do all file uploads use credits?**
+No. Only deep analysis triggers credits.
+
+### **Does rewriting text cost credits?**
+No — rewriting stays in normal chat mode.
+
+### **What happens if I run out of credits?**
+Advanced features pause. Standard chatting continues normally.
+
+---
+
+# Summary
+
+Advanced Queries in InstaAiTools support:
+
+- Deep research
+- File & PDF analysis
+- Multi-step reasoning
+- Web-augmented queries
+- Image/video generation
+- High-context model operations
+
+Use credits strategically to maximize the value of these advanced capabilities.
+
+---
+
+*Last updated: November 25, 2025*
