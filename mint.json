@@ -52,9 +52,18 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development",
+        "what_is_instaai"
+      ]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "features/chatpdf"
+      ]
+    },
+    {
+      "group": "File and Document Management",
+      "pages": [
         "supported_docs"
       ]
     },
