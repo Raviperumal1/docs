@@ -58,6 +58,7 @@
     {
       "group": "Features",
       "pages": [
+        "features/chat",
         "features/chatpdf"
       ]
     },
