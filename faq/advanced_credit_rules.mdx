@@ -1,6 +1,6 @@
 ---
-title: "Rules for Using Advanced Queries"
-description: "Learn how Advanced Queries work inside Nexva — usage limits, credits, billing, supported actions, and best practices."
+title: Rules for Using Advanced Queries
+description: Complete workflow documentation explaining how Nexva detects Advanced Queries, counts tokens, consumes credits, and handles text, file, and audio inputs.
 slug: /faqs/rules-for-using-advanced-queries
 sidebar_position: 6
 ---
@@ -9,239 +9,299 @@ sidebar_position: 6
 
 Effective Date: September 12, 2024
 
-Advanced Queries in **Nexva** enable powerful capabilities like deep research, file analysis, data extraction, extended web reasoning, and advanced model operations.
-This page explains how Advanced Queries work, how credits are consumed, plan allocations, pricing, and how to optimize usage.
+Advanced Queries in Nexva enable high-compute operations such as deep reasoning, file analysis, web retrieval, image or video generation, and audio transcription.
 
-<Info>
-Advanced Queries are only triggered when a task requires additional computation, external retrieval, or advanced tool usage. Standard chat messages do not use Advanced Query credits.
-</Info>
-
----
-
-## What Are Advanced Queries?
-
-Advanced Queries are special operations where Nexva must:
-
-- Retrieve or analyze external information
-- Perform multi-step reasoning
-- Process long or structured files
-- Execute tool-assisted operations
-- Run extended multi-source web searches
-- Handle image, audio, or document-based reasoning
-- Use high-context or high-compute LLM capabilities
-
-These require higher compute resources and therefore consume **Advanced Query Credits**.
+This document explains the **full internal workflow**:
+- How Advanced Queries are detected
+- How credits are consumed
+- How input and output tokens are counted
+- How audio transcription works
+- How free and paid plans are handled
 
 ---
 
-## When Does an Advanced Query Activate?
+## What Is an Advanced Query
 
-Nexva automatically detects when a query qualifies as “advanced.”
+An Advanced Query is automatically triggered when a request requires **additional computation, tools, or extended context** beyond standard chat.
 
-### **1. Requests requiring updated online information**
-Examples:
-- “What are today’s crypto gainers?”
-- “Summarize today’s AI news.”
-
-### **2. Deep PDF/document analysis**
-Examples:
-- “Extract all tables from this 20-page report.”
-- “Identify sections discussing renewal policies.”
-
-### **3. Multi-step research**
-Examples:
-- “Compare data from these three sources.”
-- “Summarize pros/cons of two competing platforms.”
-
-### **4. Data processing**
-Examples:
-- Parse CSV
-- Clean a dataset
-- Identify trends in an Excel sheet
-
-### **5. File-based reasoning**
-Examples:
-- “Extract values from this invoice.”
-- “Explain this screenshot or chart.”
+These operations consume **Advanced Query Credits**.
 
 ---
 
-## What Does *Not* Count as an Advanced Query?
+## High-Level Advanced Query Workflow
 
-These remain **standard chat** and cost **0 credits**:
+1. User submits input (text, file, image, audio, or video)
+2. System classifies request type
+3. Credit eligibility is evaluated
+4. Token usage is estimated
+5. Advanced Query credit is deducted (if required)
+6. Task is executed
+7. Output is generated and returned
+8. Usage is logged and displayed in settings
 
-- Simple questions
-- Writing, rewriting, tone editing
+---
+
+## Step 1: User Input Types
+
+Advanced Queries may be triggered by the following inputs:
+
+- Long or complex text prompts
+- Uploaded files (PDF, DOCX, CSV, XLSX)
+- Images or screenshots
+- Audio files for transcription
+- Video generation requests
+- Web-based or real-time queries
+
+Simple text chat does **not** trigger Advanced Queries.
+
+---
+
+## Step 2: Advanced Query Detection Logic
+
+Nexva evaluates the request using multiple signals:
+
+### Triggers That Activate Advanced Queries
+
+- External data retrieval
+- File or document analysis
+- Multi-step reasoning
+- Large context windows
+- Image, audio, or video processing
+- High-tier AI model usage
+- Tool-assisted operations
+
+If **any** of these are required, the query is classified as advanced.
+
+---
+
+## What Does NOT Trigger an Advanced Query
+
+The following remain **free standard chat**:
+
 - Grammar correction
+- Rewriting or paraphrasing
+- Tone changes
 - Short summaries
-- Code debugging for small snippets
-- Basic reasoning that does not require external tools
+- Small code fixes
+- General Q&A without tools
+- Humanizer operations
+- Basic math reasoning
+
+These cost **0 credits**.
 
 ---
 
-# Monthly Advanced Credits by Subscription Plan
+## Step 3: Credit Eligibility Check
 
-| Subscription Plan | Basic Queries | Advanced Query Credits |
-|-------------------|--------------|------------------------|
-| Free              | 40/day       | 0                      |
-| Pro               | 5,000/month  | 200/month              |
-| Unlimited         | Unlimited*   | 4,500/month            |
+Once classified as advanced, the system checks:
 
-\* *Unlimited plan still includes fair-use policies to ensure service stability.*
+- User subscription plan
+- Remaining monthly credits
+- Daily free credit allowance
+- Add-on credit balance
 
----
-
-# Add-on Credits Purchase Pricing
-
-| Credits | Price |
-|--------|-------|
-| 4,000  | US$ 10 |
-| 12,000 | US$ 30 |
-| 40,000 | US$ 100 |
+If credits are available, execution proceeds.
 
 ---
 
-# Billing Rules for Advanced Credit Consumption
+## Free User Credit Allocation
 
-## Text Generation & Processing
+Free users receive:
 
-| Feature                          | Model                            | Credits per 1K tokens |
-|----------------------------------|----------------------------------|------------------------|
-| Chat with **Custom Context Limit** | GPT-4o Mini, Claude 3 Haiku, etc. | 0.2 |
-| Chat with top-tier model         | GPT-4o, etc.                     | 2   |
+- **100 Advanced Query Credits per day**
+- Credits reset every 24 hours
+- Unused credits do not roll over
 
----
-
-## AI Translation
-
-| Service Provider | Credits per 1K tokens |
-|------------------|------------------------|
-| OpenAI           | 0.5                    |
-| Claude           | 0.5                    |
-| DeepL            | 0.1                    |
-| Google Translate | Free                   |
-| Bing Translate   | Free                   |
+If daily credits are exhausted:
+- Advanced features pause
+- Standard chat remains available
 
 ---
 
-## Image Generation & Processing
+## Step 4: Token Counting Logic
 
-| Feature                                                   | Credits per operation |
-|-----------------------------------------------------------|------------------------|
-| Stable Diffusion 3.5                                      | 65                     |
-| Flux Pro 1.1 Ultra                                        | 40                     |
-| DALL·E 3                                                  | 30                     |
-| Background Removal / Inpainting / Object Removal / etc.   | 24                     |
+Tokens represent the **computational cost** of processing text, audio, or files.
 
----
+### Input Tokens Include
 
-## Video Generation & Processing
+- User prompt text
+- Uploaded document text
+- Extracted OCR text
+- Audio transcription text
+- System instructions
+- Context from previous messages (if preserved)
 
-| Feature        | Credits per operation |
-|----------------|------------------------|
-| SVD            | 25                     |
-| Veo 2          | 500                    |
-| Runway Gen-3   | 200                    |
+### Output Tokens Include
 
----
+- Generated responses
+- Step-by-step reasoning
+- Tables, summaries, or extracted data
+- Transcription output
+- Structured JSON responses
 
-# Chat Context Management
-
-Nexva supports two context modes:
-
-### **Smart Trimming (Default)**
-The system automatically trims previous messages to optimize credit usage.
-
-### **Custom Limit**
-You choose how much context is preserved.
-This mode **consumes Advanced Query Credits** based on token count.
-
-**Important Notes:**
-
-- System prompts also count toward context size
-- Long conversations increase compute usage
-- Start a new chat to reset context
-- Maximum supported context depends on model (e.g., GPT-4o supports ~128k tokens)
+Both input and output tokens contribute to total usage.
 
 ---
 
-# How Are Advanced Query Credits Counted?
+## Token Counting Example
 
-Each advanced operation deducts **1 credit**, regardless of:
+User uploads:
+- 10-page PDF (~7,000 tokens)
+- Asks for summary (~500 output tokens)
+
+Total tokens processed:
+- Input: 7,000
+- Output: 500
+- Total: 7,500 tokens
+
+This triggers **1 Advanced Query credit**.
+
+---
+
+## Step 5: Audio Transcription Workflow
+
+Audio transcription is treated as an Advanced Query.
+
+### Audio Processing Steps
+
+1. Audio file is uploaded
+2. Speech is converted to text
+3. Language is detected
+4. Transcript is generated
+5. Tokens are counted from transcript text
+
+### Token Calculation for Audio
+
+- Tokens are counted **after transcription**
+- Longer audio = more tokens
+- Silent segments are ignored
+
+Example:
+- 10-minute audio ≈ 1,500 to 2,000 tokens
+
+Consumes **1 Advanced Query credit** per transcription task.
+
+---
+
+## Step 6: Credit Deduction Rules
+
+### Key Rule
+
+**Each Advanced operation consumes 1 credit**, regardless of:
 
 - Output length
-- Model scale
-- File size (unless extremely large)
-- Complexity of process
+- File size (within limits)
+- Model tier
+- Token volume
 
-### **Batch operations**
-Uploading multiple files may trigger **multiple** advanced operations.
+Exceptions apply only to batch or repeated operations.
 
 ---
 
-# How to Check Remaining Credits
+## Batch Operations
 
-Go to:
+Uploading multiple files or running multiple tasks may result in:
+
+- Multiple Advanced Query triggers
+- Multiple credit deductions
+
+Example:
+- Uploading 3 PDFs separately = up to 3 credits
+
+---
+
+## Step 7: Execution and Output
+
+Once credits are deducted:
+
+- Task is executed using the selected model
+- Tools are invoked if needed
+- Output is generated
+- Results are returned to the user
+
+Execution time depends on:
+- Input size
+- Model complexity
+- Tool usage
+
+---
+
+## Step 8: Usage Tracking and Visibility
+
+Users can track usage at:
 
 **Nexva → Settings → Usage → Advanced Query Credits**
 
-You can view:
-
-- Remaining credits
-- Daily limits
+Displayed information includes:
+- Credits remaining
+- Daily usage
 - Monthly allocation
-- Next reset date
-
-Credits auto-reset each billing cycle.
-
----
-
-# Tips to Avoid Wasting Credits
-
-### **1. Be specific**
-❌ “Summarize this.”
-✔️ “Summarize this PDF in 8–10 bullet points focusing on financial performance.”
-
-### **2. Avoid repeating the same request**
-Use:
-- **Quote**
-- **Follow-up prompts**
-- **Refine output**
-
-### **3. Split large documents**
-Analyze sections instead of entire files to reduce triggers.
-
-### **4. Use standard chat for simple tasks**
-Do not use advanced mode unless necessary.
+- Reset date
+- Historical consumption
 
 ---
 
-# Common Questions
+## Subscription Plan Credit Allocation
 
-### **Do all file uploads use credits?**
-No. Only deep analysis triggers credits.
+| Plan | Advanced Credits |
+|-----|------------------|
+| Free | 100 per day |
+| Pro | 200 per month |
+| Unlimited | 4,500 per month |
 
-### **Does rewriting text cost credits?**
-No — rewriting stays in normal chat mode.
-
-### **What happens if I run out of credits?**
-Advanced features pause. Standard chatting continues normally.
-
----
-
-# Summary
-
-Advanced Queries in Nexva support:
-
-- Deep research
-- File & PDF analysis
-- Multi-step reasoning
-- Web-augmented queries
-- Image/video generation
-- High-context model operations
-
-Use credits strategically to maximize the value of these advanced capabilities.
+Unlimited plans are subject to fair-use limits.
 
 ---
 
-*Last updated: November 25, 2025*
+## Add-On Credit Purchases
+
+| Credits | Price |
+|-------|-------|
+| 4,000 | US$10 |
+| 12,000 | US$30 |
+| 40,000 | US$100 |
+
+Purchased credits never expire during an active subscription.
+
+---
+
+## Best Practices to Optimize Credits
+
+- Be precise in your request
+- Avoid repeating the same task
+- Use follow-up prompts instead of re-running
+- Split large documents into sections
+- Use standard chat whenever possible
+
+---
+
+## Common Questions
+
+### Do all uploads consume credits?
+No. Only deep analysis or processing triggers credits.
+
+### Does audio transcription always use credits?
+Yes. Audio transcription is an Advanced Query.
+
+### Do tokens reset daily?
+No. Tokens are counted per request. Credits reset based on plan.
+
+### What happens when credits run out?
+Advanced features pause. Standard chat continues.
+
+---
+
+## Summary
+
+Advanced Queries power Nexva’s most capable features:
+- File and document analysis
+- Web-augmented research
+- Image and video generation
+- Audio transcription
+- High-context AI reasoning
+
+Understanding how credits and tokens work helps you **maximize value and avoid unnecessary usage**.
+
+---
+
+Last updated: November 25, 2025
