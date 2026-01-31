@@ -1,97 +1,188 @@
 ---
-title: "AI Math Solver"
-description: "How to use the Math Solver feature: choose AI models, upload files/screenshots, chat with webpages, use built-in prompts, tools, history and more."
+title: AI Math Solver
+description: End-to-end documentation for the AI Math Solver, covering text, image, and file-based math problem solving with step-by-step explanations.
 slug: /feature-guides/math-solver
-sidebar_position: 3
+sidebar_position: 6
 ---
-
 
 # AI Math Solver
 
-The Math Solver feature of Sider is your one-stop solution for an enriched chatting experience. You can complete nearly all tasks in it. :contentReference[oaicite:1]{index=1}
+AI Math Solver helps users solve mathematical problems with **clear step-by-step explanations**.
+It supports problems ranging from **basic arithmetic to advanced university-level mathematics**, including problems submitted as text, images, screenshots, or documents.
 
-## Math Solver Feature Introduction
-
-- **AI Models:** Choose to chat with GPT-3.5, GPT-4, Claude 3 Haiku, Claude 3 Sonnet, Claude 3 Opus, or Gemini. :contentReference[oaicite:2]{index=2}
-- **Screenshot:** Take a screenshot of any content on any page, so you can chat with the screenshot further. :contentReference[oaicite:3]{index=3}
-- **Upload Files:** Upload a file from your computer to start a conversation with it. :contentReference[oaicite:4]{index=4}
-- **Read this page:** Summarize or chat with the current webpage or YouTube video. :contentReference[oaicite:5]{index=5}
-- **Prompts:** Built-in frequently used prompts, saving you time inputting prompts manually. :contentReference[oaicite:6]{index=6}
-- **Mention Bot:** Click to mention one or multiple AI bots to answer the same question so you can compare the answers conveniently. :contentReference[oaicite:7]{index=7}
-- **Tools:** Enable advanced tools, including Web Access, Painter, or Advanced Data Analysis, to super-charge your AI conversation. :contentReference[oaicite:8]{index=8}
-- **Copy:** Click to copy the response. :contentReference[oaicite:9]{index=9}
-- **Quote:** Click to quote the response and then ask further questions based on it. :contentReference[oaicite:10]{index=10}
-- **Regenerate response:** Click to regenerate response. :contentReference[oaicite:11]{index=11}
-- **Ask other AI Model:** Click to get response from other AI models or from the web. :contentReference[oaicite:12]{index=12}
-- **History:** View your chatting history. :contentReference[oaicite:13]{index=13}
-- **New Math Solver:** Click to start a new chat. :contentReference[oaicite:14]{index=14}
+This document explains **how AI Math Solver works**, supported topics, workflows, and best practices.
 
 ---
 
-## Math Solver with AI on Any Topic
+## What AI Math Solver Does
 
-- Click the Sidebar icon → **Math Solver**. :contentReference[oaicite:15]{index=15}
-- Choose an AI model. :contentReference[oaicite:16]{index=16}
-- Input your query. :contentReference[oaicite:17]{index=17}
+AI Math Solver is designed to:
 
----
+- Solve math problems accurately
+- Explain each step in human-readable form
+- Handle handwritten or printed math via images
+- Support symbolic, numeric, and word problems
+- Assist learning rather than just providing answers
 
-## Process Text Conveniently with Built-in Prompts
-
-- Click the Sidebar icon → **Math Solver**. :contentReference[oaicite:18]{index=18}
-- Click on **Prompts**. :contentReference[oaicite:19]{index=19}
-- Select the appropriate prompt you need. :contentReference[oaicite:20]{index=20}
-- Input/paste your original text. :contentReference[oaicite:21]{index=21}
+It focuses on **understanding and reasoning**, not just final results.
 
 ---
 
-## Read PDFs, Images, and Files
+## Supported Input Types
 
-- Sidebar → **Math Solver**. :contentReference[oaicite:22]{index=22}
-- Click on “Screenshot” to take a screenshot of any content, or upload any file. :contentReference[oaicite:23]{index=23}
-- Click on any of the quick prompts, or input your own query. :contentReference[oaicite:24]{index=24}
+Users can submit problems using:
 
----
+- Plain text input
+- Mathematical expressions
+- Word problems
+- Uploaded files (PDF, DOCX)
+- Images and screenshots (handwritten or printed)
+- Extracted math from webpages
 
-## Summarize Any Webpage or YouTube Video
-
-- Open a webpage, then click Sidebar → **Math Solver**. :contentReference[oaicite:25]{index=25}
-- Click on “Read this page”. :contentReference[oaicite:26]{index=26}
-- Click on the quick prompt, or input your own query. :contentReference[oaicite:27]{index=27}
-
----
-
-## Create Images via Conversation
-
-- Sidebar → **Math Solver**. :contentReference[oaicite:28]{index=28}
-- Click on **Tools**. :contentReference[oaicite:29]{index=29}
-- Enable **Painter**. :contentReference[oaicite:30]{index=30}
-- Input text to describe the image. :contentReference[oaicite:31]{index=31}
+Clear input improves accuracy, especially for complex problems.
 
 ---
 
-## Analyze Data
+## High-Level Workflow
 
-Sider’s Advanced Data Analysis can analyse data, convert images, and edit code files. :contentReference[oaicite:32]{index=32}
-
-You can upload various file formats, including:
-- Text (.txt, .csv, .json, .xml, etc.) :contentReference[oaicite:33]{index=33}
-- Image (.jpg, .png, .gif, etc.) :contentReference[oaicite:34]{index=34}
-- Document (.pdf, .docx, .xlsx, .pptx, etc.) :contentReference[oaicite:35]{index=35}
-- Code (.py, .js, .html, .css, etc.) :contentReference[oaicite:36]{index=36}
-- Data (.csv, .xlsx, .tsv, .json, etc.) :contentReference[oaicite:37]{index=37}
-- Audio (.mp3, .wav, etc.) :contentReference[oaicite:38]{index=38}
-- Video (.mp4, .avi, .mov, etc.) :contentReference[oaicite:39]{index=39}
+1. User submits a math problem
+2. Input normalization and parsing
+3. Problem type detection
+4. Mathematical reasoning and solving
+5. Step-by-step explanation generation
+6. Final answer presentation
 
 ---
 
-## Supported Output Formats
+## Step 1: Input Parsing and Normalization
 
-- Text
-- Code
-- Markdown
-- Table :contentReference[oaicite:40]{index=40}
+Before solving, the system:
+
+- Detects mathematical symbols and operators
+- Converts handwritten or scanned math to text
+- Normalizes equations and expressions
+- Identifies variables, constants, and constraints
+- Detects the math domain
+
+This ensures the solver understands the problem structure.
 
 ---
 
-*Last updated: November 25, 2025*
+## Step 2: Problem Type Detection
+
+The solver automatically identifies the category of the problem, such as:
+
+- Arithmetic
+- Algebra
+- Geometry
+- Trigonometry
+- Calculus
+- Linear Algebra
+- Probability and Statistics
+- Discrete Mathematics
+- Number Theory
+- Optimization
+
+This determines which solving strategy to apply.
+
+---
+
+## Step 3: Mathematical Reasoning Engine
+
+The AI applies symbolic and numeric reasoning:
+
+- Equation manipulation
+- Logical deduction
+- Algebraic transformations
+- Formula application
+- Approximation when needed
+
+The solver prioritizes **exact solutions** before approximations.
+
+---
+
+## Step 4: Step-by-Step Explanation
+
+Each solution includes:
+
+- Clear intermediate steps
+- Mathematical justification
+- Simplified explanations
+- Optional hints and breakdowns
+
+The goal is to help users **learn how to solve**, not just copy answers.
+
+---
+
+## Supported Math Topics
+
+### Arithmetic
+- Addition, subtraction, multiplication, division
+- Fractions and decimals
+- Ratios and percentages
+
+### Algebra
+- Linear equations
+- Quadratic equations
+- Polynomials
+- Inequalities
+- Systems of equations
+
+### Geometry
+- Angles and shapes
+- Area and volume
+- Circles and triangles
+- Coordinate geometry
+
+### Trigonometry
+- Trigonometric identities
+- Sine, cosine, tangent
+- Trigonometric equations
+- Graph interpretation
+
+### Calculus
+- Limits
+- Derivatives
+- Integrals
+- Differential equations
+- Optimization problems
+
+### Linear Algebra
+- Vectors
+- Matrices
+- Determinants
+- Eigenvalues and eigenvectors
+- Matrix operations
+
+### Probability and Statistics
+- Probability rules
+- Permutations and combinations
+- Random variables
+- Mean, median, variance
+- Distributions
+
+### Discrete Mathematics
+- Logic and proofs
+- Sets and relations
+- Graph theory basics
+- Recurrence relations
+
+---
+
+## Example
+
+### Input
+
+text
+Solve the equation: 2x² - 5x - 3 = 0
+
+
+## Output
+
+Step 1: Identify coefficients a = 2, b = -5, c = -3
+Step 2: Apply the quadratic formula
+Step 3: Compute the discriminant
+Step 4: Solve for x
+
+Final Answer:
+x = 3 or x = -0.5
