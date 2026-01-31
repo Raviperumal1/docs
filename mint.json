@@ -69,6 +69,19 @@
     },
 
     {
+      "group": "Contact",
+      "pages": [
+        "contact/contact_and_support"
+      ]
+    },
+    {
+      "group": "Data-Privacy",
+      "pages": [
+        "data-privacy/data_security_and_privacy"
+      ]
+    },
+
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
