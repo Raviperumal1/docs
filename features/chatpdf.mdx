@@ -1,83 +1,151 @@
 ---
-title: "Chat with PDF (ChatPDF)"
-description: "How to use the ChatPDF feature to upload documents, engage in conversations, summarise, translate and manage files."
+title: Chat with PDF (ChatPDF)
+description: Complete documentation for ChatPDF, explaining how to upload files, process PDFs, chat with documents, select models, manage knowledge bases, and troubleshoot errors.
 slug: /feature-guides/chat-with-pdf
 sidebar_position: 2
 ---
 
 # Chat with PDF (ChatPDF)
 
-The **ChatPDF** feature allows you to interact with your entire knowledge-base—documents, webpages, audio or video—as though you’re chatting with them. Instantly analyse, summarise, deep-research, or translate your files. :contentReference[oaicite:1]{index=1}
+ChatPDF allows you to interact with PDFs and other files as if you were chatting with them.
+You can ask questions, summarize sections, extract data, translate content, and perform deep research directly on your documents.
 
-<Info>
-Use this guide to get started with uploading files, managing them, engaging in deep chat sessions, summarising and translating your content.
-</Info>
-
----
-
-## 1. Uploading Files and Starting Chats
-
-### 1.1 Uploading Files
-You can import content via:
-- Local upload: select one or more files from your computer. :contentReference[oaicite:2]{index=2}
-- URL link: paste a web link to analyze and import web content. :contentReference[oaicite:3]{index=3}
-- Record note: create an audio or screen-recorded note and add it to your knowledge base. :contentReference[oaicite:4]{index=4}
-
-#### Supported file formats
-Documents: PDF, Word, TXT, PPT.
-Other types: Webpages, Images, Audio, Video. :contentReference[oaicite:5]{index=5}
-
-#### Free vs Paid plan limits
-Be aware that different plan tiers have restrictions on upload size, file count and usage. :contentReference[oaicite:6]{index=6}
-
-### 1.2 Chatting with Multiple Files
-- Choose an AI model and select target files to start chatting. :contentReference[oaicite:7]{index=7}
-- Mix sources: combine files, web sources and notes into one chat session. :contentReference[oaicite:8]{index=8}
-- Deep-Research mode: perform deep analysis across all your selected files. :contentReference[oaicite:9]{index=9}
+This guide explains the **full workflow**, exactly as it works in the interface—from uploading a PDF to chatting, model selection, and error handling.
 
 ---
 
-## 2. File Translation
-- Open a file in the platform, select your AI model, choose target language (50+ supported). :contentReference[oaicite:10]{index=10}
-- The layout, structure and formatting aim to be preserved where possible. :contentReference[oaicite:11]{index=11}
+## What You Can Do with ChatPDF
+
+With ChatPDF, you can:
+
+- Upload PDFs and create PDF chat sessions
+- View documents alongside a chat panel
+- Ask document-aware questions
+- Get answers grounded in document content
+- Summarize pages, sections, or entire PDFs
+- Extract tables, lists, and key data
+- Translate documents into other languages
+- Chat with multiple PDFs at once
+- Manage and delete PDF chat sessions
 
 ---
 
-## 3. File Summary
-Hover over a file in the file list panel to instantly preview a summary of its content. :contentReference[oaicite:12]{index=12}
+## Interface Overview
+
+The ChatPDF interface is divided into four main areas:
+
+1. **Sidebar Navigation**
+   - Access ChatPDF
+   - View PDF chats
+   - Upload new files
+   - Start a new chat
+
+2. **PDF Chat List**
+   - Shows uploaded PDFs
+   - Displays upload date
+   - Allows deleting a PDF chat
+
+3. **PDF Viewer**
+   - Displays the selected PDF
+   - Page navigation controls
+   - Scroll and zoom support
+
+4. **Chat Panel**
+   - AI model selector
+   - Chat input box
+   - Document-aware responses
+   - Error and status messages
 
 ---
 
-## 4. File Management
-### 4.1 Search
-Use keywords to locate files quickly in your workspace. :contentReference[oaicite:13]{index=13}
-### 4.2 Filter
-Filter files by type (documents, images, audio, etc.). :contentReference[oaicite:14]{index=14}
-### 4.3 Bulk Actions
-Move, download or delete multiple files at once. Group related files (e.g., by topic) into a dedicated knowledge base. :contentReference[oaicite:15]{index=15}
+## Supported Content Types
+
+### Documents
+- PDF
+- DOCX
+- PPTX
+- TXT
+
+### Other Sources
+- Webpages (via URL import)
+- Images (OCR supported)
+- Audio files (transcribed)
+- Video files (transcribed)
 
 ---
 
-## 5. Taking Notes
-While reading, reviewing or chatting with a file, you can click **Add Note** to record key insights or inspirations. :contentReference[oaicite:16]{index=16}
+## 1. Uploading PDFs and Creating PDF Chats
+
+### 1.1 Uploading a PDF
+
+To upload a PDF:
+
+1. Open **ChatPDF** from the sidebar
+2. Click **Upload File**
+3. Select a PDF from your computer
+4. Wait for processing to complete
+
+Once uploaded:
+- A new **PDF chat** appears in the left panel
+- The PDF opens automatically in the viewer
+- A dedicated chat session is created for that file
+
+Each uploaded PDF has its own chat context.
 
 ---
 
-## 6. Best Practice Tips
-- Ask specific, structured questions to get better answers (e.g., “Summarize section 3.2 in 150 words with two direct quotes”). :contentReference[oaicite:17]{index=17}
-- Request that answers include page numbers or quote excerpts when working with academic or technical material. :contentReference[oaicite:18]{index=18}
-- For scanned or image-based PDFs, OCR quality may impact results — double-check extracted text or numbers. :contentReference[oaicite:19]{index=19}
+### 1.2 What Happens After Upload
+
+After upload, the system performs the following steps:
+
+1. Extracts text from the PDF
+2. Applies OCR if the PDF is scanned
+3. Splits content into pages and chunks
+4. Generates embeddings
+5. Stores embeddings in the vector database
+6. Indexes content for retrieval
+
+Only after indexing completes can document chat begin.
 
 ---
 
-### Want to get started?
-1. Upload your first file (PDF, PPT, Word etc).
-2. Open the chat interface and ask your first question (e.g., “What are 3 key takeaways from this document?”).
-3. Use translation or summarisation features when needed.
-4. Organise your files, filter or search them, and use notes to capture insights.
-5. Explore follow-up questions and interactions to dig deeper into your document content.
+## 2. Viewing and Navigating the PDF
+
+In the PDF viewer, you can:
+
+- Scroll through pages
+- Jump to a specific page
+- View total page count
+- Switch between PDFs
+
+The AI references the currently indexed document, not just the visible page.
 
 ---
 
-*Last updated: November 25, 2025*
+## 3. Selecting an AI Model
 
+At the top of the chat panel, you can choose an AI model.
+
+### Model Selection Steps
+
+1. Click the model dropdown
+2. Select a model (for example, GPT-4o-mini)
+3. The selected model is used for all responses in this chat
+
+### Model Selection Tips
+
+- Lightweight models are faster for summaries
+- Advanced models are better for deep reasoning
+- Model choice does not change document indexing
+
+---
+
+## 4. Chatting with a PDF
+
+### 4.1 Asking Questions
+
+Type your question in the chat input box.
+
+Examples:
+```text
+Summarize this PDF in 5 bullet points
