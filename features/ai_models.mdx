@@ -1,71 +1,170 @@
 ---
-title: "AI Models — Basic & Advanced"
-description: "Overview of the most widely used basic and advanced AI models available today, their strengths, modalities and use-cases."
+title: AI Models — Basic & Advanced
+description: Complete overview of AI models available in Nexva, including context limits, pricing, modalities, and recommended use cases.
 slug: /features/ai-hub/models-overview
 sidebar_position: 4
 ---
 
 # AI Models — Basic & Advanced
 
-This page summarises popular AI models that are commonly used in modern AI assistants, categorised into **Basic Models** (lighter, faster, lower cost) and **Advanced Models** (higher reasoning, multimodal, large context windows). Use this guide to help select the right model for your task.
+Nexva provides access to a wide range of modern AI models from leading providers such as OpenAI, Anthropic, Google, xAI (Grok), DeepSeek, and MoonshotAI.
+Each model differs in **capabilities, cost, context size, and supported modalities**.
+
+This guide helps you understand:
+- Which models are **basic vs advanced**
+- What each model is best suited for
+- How pricing and credits work
+- How to choose the right model for your task
 
 <Info>
-Model names, capabilities and availability change quickly — always refer to the provider’s documentation for the latest details.
+AI models evolve rapidly. Pricing, limits, and capabilities may change. Always refer to provider documentation for the latest updates.
 </Info>
+
+---
+
+## Model Categories
+
+### Basic Models
+Basic models are optimized for:
+- Fast responses
+- Lower cost
+- Everyday chat, rewriting, summarization, and coding tasks
+
+### Advanced Models
+Advanced models are designed for:
+- Deep reasoning and analysis
+- Large context windows
+- Multimodal inputs (image, web, audio)
+- Agentic and enterprise workflows
 
 ---
 
 ## Basic Models
 
-These models are well-suited for standard tasks such as chat, simple question-answering, rewriting, and lighter workloads.
+These models are ideal for lightweight and cost-effective workloads.
 
-| Model | Developer | Key Features | Best Use-Cases |
-|-------|-----------|-------------|--------------|
-| GPT‑3.5 | OpenAI | Text-only, cost-efficient | Basic chatbots, rewriting, content generation |
-| o1‑mini | OpenAI | Smaller “mini” version, lower compute | Embedded agents, quick replies |
-| Llama 3 | Meta AI | Open-weight version, moderate size | Research projects, internal tooling |
-| Qwen2 | Alibaba Cloud | Text & vision input, Chinese & multilingual | Multilingual chat, vision-enabled apps |
-| Claude 3 Haiku | Anthropic | Balanced reasoning + cost | Chat assistants, safety-optimized tasks |
+| Model | Provider | Context | Strengths | Best Use Cases |
+|------|---------|--------|----------|---------------|
+| OpenAI: GPT-5 Nano | OpenAI | 400K | Extremely low cost, fast | Simple chat, rewriting, automation |
+| OpenAI: GPT-5 Mini | OpenAI | 400K | Balanced cost + quality | General chat, coding help |
+| OpenAI: GPT-4o-mini | OpenAI | 128K | Reliable, affordable | Everyday assistants |
+| OpenAI: o1-mini | OpenAI | 128K | Compact reasoning | Lightweight agents |
+| Claude 3 Haiku | Anthropic | 200K | Safe, efficient | Customer support, chatbots |
+| Claude 3.5 Haiku | Anthropic | 200K | Faster reasoning | Knowledge assistants |
+| Gemini 2.5 Flash | Google | 1M+ | Fast, multimodal | Quick vision + text tasks |
+| Grok 4 Fast / 4.1 Fast | xAI | 2M | Very low latency | High-volume chat |
+| DeepSeek V3.x | DeepSeek | 32K–163K | Ultra cost-efficient | Coding, bulk text processing |
+| MoonshotAI: Kimi K2.x | MoonshotAI | 262K | Long-context reasoning | Document summarization |
 
 ---
 
 ## Advanced Models
 
-These are higher-end models with multimodal input (text, image, sometimes audio), longer memory/context, advanced reasoning and higher cost. Use them when depth and complexity matter.
+Use these models when accuracy, reasoning depth, or multimodal capability matters.
 
-| Model | Developer | Key Features | Best Use-Cases |
-|-------|-----------|-------------|--------------|
-| GPT‑4o | OpenAI | Multimodal (text + image + audio support), large context window. :contentReference[oaicite:11]{index=11} | Complex document analysis, image+text tasks, multi-step workflows |
-| Claude 3.5 Sonnet | Anthropic | Improved reasoning, lower cost vs flagship models :contentReference[oaicite:13]{index=13} | Multi-step reasoning, safer outputs, enterprise assistants |
-| Gemini 2.5 Pro | Google DeepMind | Strong multimodal reasoning (according to reports) :contentReference[oaicite:16]{index=16} | Agentic tasks, tool chaining, vision+text flows |
-| Qwen3‑Max | Alibaba Cloud | Large context, multilingual, open-weight focus :contentReference[oaicite:18]{index=18} | Research, multilingual apps, large document workflows |
-| o3‑mini | OpenAI | “Reasoning” model variant, improved step-by-step logic :contentReference[oaicite:20]{index=20} | Math/science reasoning, chain-of-thought tasks |
+| Model | Provider | Context | Modalities | Best Use Cases |
+|-----|---------|--------|-----------|---------------|
+| OpenAI: GPT-5 / GPT-5 Chat | OpenAI | 400K | Text | Advanced reasoning, agents |
+| OpenAI: GPT-5.2 / Codex | OpenAI | 400K | Text, Web | Large workflows, coding |
+| OpenAI: GPT-4o | OpenAI | 128K | Text, Image, Audio | Multimodal assistants |
+| OpenAI: GPT-5 Image Mini | OpenAI | 400K | Image, Web | Image generation & analysis |
+| Claude Sonnet 4 / 3.7 | Anthropic | 200K–1M | Text, Image | Safe enterprise reasoning |
+| Claude Sonnet 4.5 | Anthropic | 1M | Text | Complex long-form tasks |
+| Gemini 3 Pro Preview | Google | 1M+ | Text, Audio | Research & agents |
+| Gemini 2.5 Pro | Google | 1M+ | Text, Image, Audio | Tool-based workflows |
+| Gemini Nano Banana Pro | Google | 65K | Image-heavy | Vision generation & analysis |
+| Grok 4 | xAI | 256K | Text, Web | Real-time reasoning |
+| Grok Code Fast | xAI | 256K | Text | Code-focused workloads |
 
 ---
 
-## Choosing the Right Model for Your Task
+## Understanding Context Length
 
-When selecting a model, consider:
+**Context** refers to how much information a model can remember in a single conversation.
 
-- **Modalities needed**: Do you need image/audio support or just text? Choose a multimodal model if yes.
-- **Context length**: Long documents or multi-step tasks require large context windows.
-- **Reasoning complexity**: For deep reasoning, chain of thought or research, pick advanced models.
-- **Cost & latency**: Basic models are cheaper and faster; advanced models cost more and may have slower responses.
-- **Safety & reliability**: Some models prioritise safer outputs or fewer hallucinations (e.g., Claude family).
-- **Availability & licensing**: Some models are open-weight/open-source; others are proprietary APIs with usage costs.
+Examples:
+- **32K–128K** → Chat, short documents
+- **200K–400K** → Long PDFs, multi-file analysis
+- **1M+** → Books, research papers, agent memory
+
+Choose larger context models for:
+- Long documents
+- Multi-step workflows
+- Persistent conversations
+
+---
+
+## Pricing & Credits (Simplified)
+
+Models are billed per **million tokens**:
+- **Input tokens** → what you send
+- **Output tokens** → what the AI generates
+
+Higher-end models:
+- Cost more
+- Consume more credits
+- Provide better reasoning & modalities
+
+Basic models:
+- Cheaper
+- Faster
+- Ideal for everyday use
+
+Refer to the **Pricing & Credits** page for exact consumption details.
+
+---
+
+## Modalities Explained
+
+| Modality | Meaning |
+|-------|--------|
+| Text | Chat, code, documents |
+| Image | Image input or generation |
+| Web | Live web browsing |
+| Audio | Speech, audio understanding |
+
+Not all models support all modalities.
 
 ---
 
 ## How Nexva Uses Models
 
-Nexva automatically selects a default model based on your plan and the task type. You can override and pick a specific model when:
+By default, Nexva:
+- Selects an optimal model based on task type
+- Balances speed, cost, and quality
 
-- Uploading large documents for analysis
-- Combining image, audio, and text sources
-- Running multi-step agentic workflows
-
-Advanced models may consume more credits (refer to your Pricing & Credits page).
+You can manually choose models when:
+- Uploading large documents
+- Using image or audio inputs
+- Running agent workflows
+- Optimizing for cost or accuracy
 
 ---
 
-*Last updated: November 25, 2025*
+## Choosing the Right Model
+
+Ask yourself:
+- Do I need **speed or depth**?
+- Is **image/audio input required**?
+- How large is my document?
+- Is **cost efficiency** important?
+- Do I need **enterprise-grade safety**?
+
+### Quick Recommendations
+- **Everyday chat** → GPT-4o-mini, Claude Haiku
+- **Long documents** → Gemini 2.5 Pro, Claude Sonnet 4
+- **Coding at scale** → DeepSeek V3, GPT-5.2 Codex
+- **Multimodal** → GPT-4o, Gemini Pro
+- **Ultra-cheap processing** → DeepSeek, Grok Fast
+
+---
+
+## Final Notes
+
+- Model availability may vary by plan
+- Advanced models consume more credits
+- Nexva continuously adds and updates models
+
+---
+
+*Last updated: January 31, 2026*
