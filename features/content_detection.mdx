@@ -1,96 +1,250 @@
 ---
 title: "AI Content Detection"
-description: "How to use the Content Detection feature: choose AI models, upload files/screenshots, chat with webpages, use built-in prompts, tools, history and more."
-slug: /feature-guides/content
+description: "End-to-end documentation for AI Content Detection: how text is analyzed to determine AI-generated vs human-written content using linguistic, statistical, and model-based signals."
+slug: /feature-guides/ai-content-detection
 sidebar_position: 3
 ---
 
-
 # AI Content Detection
 
-The Content Detection feature of Sider is your one-stop solution for an enriched chatting experience. You can complete nearly all tasks in it. :contentReference[oaicite:1]{index=1}
+AI Content Detection helps determine whether a given piece of text is **AI-generated**, **human-written**, or **mixed**.
+This feature analyzes linguistic patterns, statistical signals, and model-based probabilities to estimate the likelihood that content was produced by generative AI systems.
 
-## Content Detection Feature Introduction
-
-- **AI Models:** Choose to chat with GPT-3.5, GPT-4, Claude 3 Haiku, Claude 3 Sonnet, Claude 3 Opus, or Gemini. :contentReference[oaicite:2]{index=2}
-- **Screenshot:** Take a screenshot of any content on any page, so you can chat with the screenshot further. :contentReference[oaicite:3]{index=3}
-- **Upload Files:** Upload a file from your computer to start a conversation with it. :contentReference[oaicite:4]{index=4}
-- **Read this page:** Summarize or chat with the current webpage or YouTube video. :contentReference[oaicite:5]{index=5}
-- **Prompts:** Built-in frequently used prompts, saving you time inputting prompts manually. :contentReference[oaicite:6]{index=6}
-- **Mention Bot:** Click to mention one or multiple AI bots to answer the same question so you can compare the answers conveniently. :contentReference[oaicite:7]{index=7}
-- **Tools:** Enable advanced tools, including Web Access, Painter, or Advanced Data Analysis, to super-charge your AI conversation. :contentReference[oaicite:8]{index=8}
-- **Copy:** Click to copy the response. :contentReference[oaicite:9]{index=9}
-- **Quote:** Click to quote the response and then ask further questions based on it. :contentReference[oaicite:10]{index=10}
-- **Regenerate response:** Click to regenerate response. :contentReference[oaicite:11]{index=11}
-- **Ask other AI Model:** Click to get response from other AI models or from the web. :contentReference[oaicite:12]{index=12}
-- **History:** View your chatting history. :contentReference[oaicite:13]{index=13}
-- **New Content Detection:** Click to start a new chat. :contentReference[oaicite:14]{index=14}
+This document provides a **complete, end-to-end explanation** of how AI Content Detection works, from user input to final confidence scoring.
 
 ---
 
-## Content Detection with AI on Any Topic
+## What AI Content Detection
 
-- Click the Sidebar icon → **Content Detection**. :contentReference[oaicite:15]{index=15}
-- Choose an AI model. :contentReference[oaicite:16]{index=16}
-- Input your query. :contentReference[oaicite:17]{index=17}
+### What it does
+- Analyzes **user-submitted text**
+- Detects **AI-like language patterns**
+- Estimates **probability scores** for:
+  - AI-generated content
+  - Human-written content
+  - Mixed or edited content
 
----
+### What it does NOT do
+- It does **not** identify the exact AI model used
+- It does **not** guarantee 100% accuracy
+- It does **not** judge intent, plagiarism, or originality
 
-## Process Text Conveniently with Built-in Prompts
-
-- Click the Sidebar icon → **Content Detection**. :contentReference[oaicite:18]{index=18}
-- Click on **Prompts**. :contentReference[oaicite:19]{index=19}
-- Select the appropriate prompt you need. :contentReference[oaicite:20]{index=20}
-- Input/paste your original text. :contentReference[oaicite:21]{index=21}
-
----
-
-## Read PDFs, Images, and Files
-
-- Sidebar → **Content Detection**. :contentReference[oaicite:22]{index=22}
-- Click on “Screenshot” to take a screenshot of any content, or upload any file. :contentReference[oaicite:23]{index=23}
-- Click on any of the quick prompts, or input your own query. :contentReference[oaicite:24]{index=24}
+AI Content Detection provides **probabilistic insights**, not absolute proof.
 
 ---
 
-## Summarize Any Webpage or YouTube Video
+## High-Level Workflow
 
-- Open a webpage, then click Sidebar → **Content Detection**. :contentReference[oaicite:25]{index=25}
-- Click on “Read this page”. :contentReference[oaicite:26]{index=26}
-- Click on the quick prompt, or input your own query. :contentReference[oaicite:27]{index=27}
-
----
-
-## Create Images via Conversation
-
-- Sidebar → **Content Detection**. :contentReference[oaicite:28]{index=28}
-- Click on **Tools**. :contentReference[oaicite:29]{index=29}
-- Enable **Painter**. :contentReference[oaicite:30]{index=30}
-- Input text to describe the image. :contentReference[oaicite:31]{index=31}
+1. User inputs text
+2. Text preprocessing and normalization
+3. Linguistic feature extraction
+4. Statistical pattern analysis
+5. AI model probability scoring
+6. Confidence aggregation
+7. Final classification and explanation
 
 ---
 
-## Analyze Data
+## Step 1: User Input
 
-Sider’s Advanced Data Analysis can analyse data, convert images, and edit code files. :contentReference[oaicite:32]{index=32}
+Users can submit text through:
+- Direct text input
+- Uploaded documents (PDF, DOCX, TXT)
+- Screenshots (OCR-processed)
+- Webpage or article extraction
 
-You can upload various file formats, including:
-- Text (.txt, .csv, .json, .xml, etc.) :contentReference[oaicite:33]{index=33}
-- Image (.jpg, .png, .gif, etc.) :contentReference[oaicite:34]{index=34}
-- Document (.pdf, .docx, .xlsx, .pptx, etc.) :contentReference[oaicite:35]{index=35}
-- Code (.py, .js, .html, .css, etc.) :contentReference[oaicite:36]{index=36}
-- Data (.csv, .xlsx, .tsv, .json, etc.) :contentReference[oaicite:37]{index=37}
-- Audio (.mp3, .wav, etc.) :contentReference[oaicite:38]{index=38}
-- Video (.mp4, .avi, .mov, etc.) :contentReference[oaicite:39]{index=39}
+**Supported languages:**
+English (primary), with limited support for other languages depending on model availability.
 
 ---
 
-## Supported Output Formats
+## Step 2: Text Preprocessing
 
-- Text
-- Code
-- Markdown
-- Table :contentReference[oaicite:40]{index=40}
+Before analysis, the system cleans and normalizes the text:
+
+- Removes extra whitespace and formatting
+- Normalizes punctuation and casing
+- Splits text into sentences and tokens
+- Detects language and encoding
+- Filters extremely short or invalid inputs
+
+> Detection accuracy improves with **longer inputs (150+ words)**.
+
+---
+
+## Step 3: Linguistic Feature Analysis
+
+The system examines **human vs AI writing behavior**, including:
+
+### Lexical Patterns
+- Vocabulary diversity
+- Repetitive word usage
+- Overuse of neutral or generic phrasing
+
+### Syntactic Structure
+- Sentence length uniformity
+- Predictable grammar constructions
+- Low syntactic variance
+
+### Semantic Flow
+- Overly coherent transitions
+- Lack of human-like digressions
+- Excessively balanced sentence structures
+
+AI-generated text often appears **too consistent**, while human writing shows more irregularity.
+
+---
+
+## Step 4: Statistical Signal Detection
+
+Statistical signals are strong indicators of AI generation.
+
+### Perplexity
+- Measures how predictable the text is
+- AI text typically has **lower perplexity**
+- Human text has **higher randomness**
+
+### Burstiness
+- Measures variation in sentence complexity
+- Humans write with uneven rhythm
+- AI often produces smooth, evenly structured output
+
+### Token Distribution
+- Frequency of common AI-preferred tokens
+- Repetitive probability patterns
+
+---
+
+## Step 5: AI Model Probability Scoring
+
+The system uses **AI detection models** trained on:
+- Large datasets of human-written text
+- Outputs from multiple generative AI models
+- Edited and mixed-content samples
+
+Each model returns:
+- AI likelihood score
+- Human likelihood score
+- Confidence level
+
+Multiple models may be ensembled to reduce bias.
+
+---
+
+## Step 6: Confidence Aggregation
+
+All signals are combined into a unified confidence score using:
+- Weighted averaging
+- Threshold-based classification
+- Noise reduction filters
+
+### Example Output Scores
+- **AI-generated:** 92%
+- **Human-written:** 6%
+- **Mixed:** 2%
+
+Confidence levels are adjusted based on:
+- Text length
+- Language quality
+- Detected edits or paraphrasing
+
+---
+
+## Step 7: Final Classification
+
+The system returns one of the following results:
+
+### AI-Generated
+- Strong AI linguistic and statistical patterns
+- High predictability and uniformity
+
+### Human-Written
+- Natural variance and unpredictability
+- Irregular sentence structure
+- Human-like phrasing
+
+### Mixed / Uncertain
+- AI-generated text edited by humans
+- Heavily paraphrased AI content
+- Insufficient text length
+
+---
+
+## Result Explanation (Transparency Layer)
+
+To improve trust, the system may show:
+- Key signals that influenced the result
+- Confidence range (not absolute certainty)
+- Warnings for low-confidence detections
+
+Example:
+> “This text shows low perplexity and uniform sentence structure, commonly found in AI-generated content.”
+
+---
+
+## Accuracy & Limitations
+
+### Accuracy Depends On
+- Text length
+- Language used
+- Degree of human editing
+- AI model version
+
+### Known Limitations
+- Short text (<100 words)
+- Highly technical writing
+- Heavy paraphrasing
+- Non-native English writing
+
+AI Content Detection should be used as a **decision-support tool**, not a sole authority.
+
+---
+
+## Best Practices for Users
+
+- Submit longer text for better accuracy
+- Avoid judging based on a single score
+- Combine detection results with human review
+- Treat results as probabilistic, not definitive
+
+---
+
+## Supported Input Formats
+
+- Plain text
+- PDF
+- DOCX
+- TXT
+- Webpage content
+- OCR-extracted images
+
+---
+
+## Output Formats
+
+- Text summary
+- Confidence percentages
+- Explanatory signals
+- Structured JSON (API usage)
+
+---
+
+## Use Cases
+
+- Academic integrity checks
+- Content moderation
+- SEO and content audits
+- Publishing and editorial review
+- Enterprise compliance workflows
+
+---
+
+## Future Improvements
+
+- Multi-language detection expansion
+- Model attribution estimation
+- Version-aware AI detection
+- Improved mixed-content analysis
 
 ---
 
