@@ -66,7 +66,8 @@
         "features/video_generation",
         "features/image_generation",
         "features/content_detection",
-        "features/humanizer"
+        "features/humanizer",
+        "features/prompt"
       ]
     },
     {
