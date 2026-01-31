@@ -1,251 +1,144 @@
 ---
-title: "AI Content Detection"
-description: "End-to-end documentation for AI Content Detection: how text is analyzed to determine AI-generated vs human-written content using linguistic, statistical, and model-based signals."
-slug: /feature-guides/ai-content-detection
+title: AI Content Detection
+description: End-to-end documentation for AI Content Detection, explaining how text is analyzed to identify AI-generated, human-written, or mixed content.
+slug: /ai-content-detection
 sidebar_position: 3
 ---
 
 # AI Content Detection
 
-AI Content Detection helps determine whether a given piece of text is **AI-generated**, **human-written**, or **mixed**.
-This feature analyzes linguistic patterns, statistical signals, and model-based probabilities to estimate the likelihood that content was produced by generative AI systems.
+AI Content Detection analyzes text and estimates whether it was written by an artificial intelligence system, a human, or a combination of both.
+The feature uses linguistic analysis, statistical modeling, and machine-learned signals to provide probabilistic detection results.
 
-This document provides a **complete, end-to-end explanation** of how AI Content Detection works, from user input to final confidence scoring.
+This document explains the feature **from start to finish**, including workflow, detection logic, output interpretation, and API usage.
 
 ---
 
-## What AI Content Detection
+## What AI Content Detection Solves
 
-### What it does
-- Analyzes **user-submitted text**
-- Detects **AI-like language patterns**
-- Estimates **probability scores** for:
-  - AI-generated content
-  - Human-written content
-  - Mixed or edited content
+- Identifies AI-generated writing patterns
+- Flags human-written versus AI-written text
+- Supports editorial, academic, and compliance workflows
+- Provides confidence-based results instead of absolute claims
 
-### What it does NOT do
-- It does **not** identify the exact AI model used
-- It does **not** guarantee 100% accuracy
-- It does **not** judge intent, plagiarism, or originality
+AI Content Detection is designed to assist decision-making, not replace human judgment.
 
-AI Content Detection provides **probabilistic insights**, not absolute proof.
+---
+
+## Supported Inputs
+
+You can analyze content from the following sources:
+
+- Plain text
+- Uploaded files (TXT, PDF, DOCX)
+- OCR-extracted screenshots
+- Webpage or article content
+
+For best accuracy, provide at least **150 characters** of text.
 
 ---
 
 ## High-Level Workflow
 
-1. User inputs text
-2. Text preprocessing and normalization
+1. User submits text
+2. Text normalization and preprocessing
 3. Linguistic feature extraction
-4. Statistical pattern analysis
-5. AI model probability scoring
+4. Statistical signal analysis
+5. AI probability modeling
 6. Confidence aggregation
-7. Final classification and explanation
+7. Final classification
 
 ---
 
-## Step 1: User Input
+## Step 1: Text Preprocessing
 
-Users can submit text through:
-- Direct text input
-- Uploaded documents (PDF, DOCX, TXT)
-- Screenshots (OCR-processed)
-- Webpage or article extraction
+Before detection begins, the system:
 
-**Supported languages:**
-English (primary), with limited support for other languages depending on model availability.
-
----
-
-## Step 2: Text Preprocessing
-
-Before analysis, the system cleans and normalizes the text:
-
-- Removes extra whitespace and formatting
-- Normalizes punctuation and casing
+- Removes unnecessary formatting
+- Normalizes punctuation and spacing
 - Splits text into sentences and tokens
-- Detects language and encoding
-- Filters extremely short or invalid inputs
+- Detects language automatically
+- Rejects extremely short or invalid input
 
-> Detection accuracy improves with **longer inputs (150+ words)**.
+This step ensures consistent and reliable analysis.
 
 ---
 
-## Step 3: Linguistic Feature Analysis
+## Step 2: Linguistic Analysis
 
-The system examines **human vs AI writing behavior**, including:
+The system evaluates how the text is written.
 
-### Lexical Patterns
+### Lexical Signals
 - Vocabulary diversity
-- Repetitive word usage
-- Overuse of neutral or generic phrasing
+- Word repetition patterns
+- Neutral or generic phrasing frequency
 
-### Syntactic Structure
-- Sentence length uniformity
-- Predictable grammar constructions
-- Low syntactic variance
+### Structural Signals
+- Sentence length consistency
+- Grammar predictability
+- Syntactic variation
 
-### Semantic Flow
-- Overly coherent transitions
-- Lack of human-like digressions
-- Excessively balanced sentence structures
-
-AI-generated text often appears **too consistent**, while human writing shows more irregularity.
+Human writing usually contains more variation and irregularity than AI-generated text.
 
 ---
 
-## Step 4: Statistical Signal Detection
-
-Statistical signals are strong indicators of AI generation.
+## Step 3: Statistical Pattern Detection
 
 ### Perplexity
-- Measures how predictable the text is
-- AI text typically has **lower perplexity**
-- Human text has **higher randomness**
+Measures how predictable the text is.
+Lower perplexity often indicates AI-generated content.
 
 ### Burstiness
-- Measures variation in sentence complexity
-- Humans write with uneven rhythm
-- AI often produces smooth, evenly structured output
-
-### Token Distribution
-- Frequency of common AI-preferred tokens
-- Repetitive probability patterns
+Measures variation in sentence structure.
+Human writing tends to be uneven, while AI text is more uniform.
 
 ---
 
-## Step 5: AI Model Probability Scoring
+## Step 4: AI Probability Modeling
 
-The system uses **AI detection models** trained on:
-- Large datasets of human-written text
+Detection models are trained using:
+
+- Human-authored writing samples
 - Outputs from multiple generative AI models
-- Edited and mixed-content samples
+- Edited and mixed-content datasets
 
-Each model returns:
-- AI likelihood score
-- Human likelihood score
-- Confidence level
-
-Multiple models may be ensembled to reduce bias.
+Each model produces likelihood scores for AI-generated and human-written text.
 
 ---
 
-## Step 6: Confidence Aggregation
+## Step 5: Confidence Aggregation
 
-All signals are combined into a unified confidence score using:
-- Weighted averaging
-- Threshold-based classification
-- Noise reduction filters
+Multiple signals are combined into a final confidence score.
 
-### Example Output Scores
-- **AI-generated:** 92%
-- **Human-written:** 6%
-- **Mixed:** 2%
+Example output:
+- AI-generated likelihood: 0.91
+- Human-written likelihood: 0.07
+- Mixed content likelihood: 0.02
 
-Confidence levels are adjusted based on:
-- Text length
-- Language quality
-- Detected edits or paraphrasing
+Confidence levels are adjusted based on text length and detected edits.
 
 ---
 
-## Step 7: Final Classification
+## Final Classification Types
 
-The system returns one of the following results:
-
-### AI-Generated
-- Strong AI linguistic and statistical patterns
-- High predictability and uniformity
-
-### Human-Written
-- Natural variance and unpredictability
-- Irregular sentence structure
-- Human-like phrasing
-
-### Mixed / Uncertain
-- AI-generated text edited by humans
-- Heavily paraphrased AI content
-- Insufficient text length
+| Classification | Description |
+|---------------|------------|
+| ai_generated | Strong indicators of AI authorship |
+| human_written | Natural human writing patterns |
+| mixed | AI-generated text edited by a human |
+| uncertain | Insufficient evidence |
 
 ---
 
-## Result Explanation (Transparency Layer)
+## Result Interpretation
 
-To improve trust, the system may show:
-- Key signals that influenced the result
-- Confidence range (not absolute certainty)
-- Warnings for low-confidence detections
+Results are probabilistic and should be interpreted carefully.
 
-Example:
-> “This text shows low perplexity and uniform sentence structure, commonly found in AI-generated content.”
+- High confidence means stronger signals
+- Medium confidence suggests mixed indicators
+- Low confidence means insufficient or ambiguous data
 
----
-
-## Accuracy & Limitations
-
-### Accuracy Depends On
-- Text length
-- Language used
-- Degree of human editing
-- AI model version
-
-### Known Limitations
-- Short text (<100 words)
-- Highly technical writing
-- Heavy paraphrasing
-- Non-native English writing
-
-AI Content Detection should be used as a **decision-support tool**, not a sole authority.
+Detection accuracy decreases for short or heavily paraphrased text.
 
 ---
 
-## Best Practices for Users
-
-- Submit longer text for better accuracy
-- Avoid judging based on a single score
-- Combine detection results with human review
-- Treat results as probabilistic, not definitive
-
----
-
-## Supported Input Formats
-
-- Plain text
-- PDF
-- DOCX
-- TXT
-- Webpage content
-- OCR-extracted images
-
----
-
-## Output Formats
-
-- Text summary
-- Confidence percentages
-- Explanatory signals
-- Structured JSON (API usage)
-
----
-
-## Use Cases
-
-- Academic integrity checks
-- Content moderation
-- SEO and content audits
-- Publishing and editorial review
-- Enterprise compliance workflows
-
----
-
-## Future Improvements
-
-- Multi-language detection expansion
-- Model attribution estimation
-- Version-aware AI detection
-- Improved mixed-content analysis
-
----
-
-*Last updated: November 25, 2025*
