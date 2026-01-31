@@ -1,23 +1,216 @@
+
+# Supported File Formats & Upload Limits
+
+This page explains which file formats Nexva supports and how file upload size limits vary based on your subscription plan.
+
+Understanding these limits helps you upload files successfully and get the best results from the AI assistant.
+
 ---
-title: Supported formats and limitations
-slug: /docs/file-formats/supported-docs
+
+## Overview
+
+Nexva allows you to upload files so the AI can:
+- Read and summarize documents
+- Analyze structured data
+- Extract text from images
+- Assist with coding and configuration files
+
+File upload limits depend on:
+- Your **subscription plan**
+- The **AI model** being used
+- The **type of file** you upload
+
 ---
 
-# Supported formats and limitations
+## File Upload Size Limits by Plan
 
-This page explains which file sizes and formats are currently supported when you upload content for the assistant to use.
+Each Nexva plan has a maximum file size limit per uploaded file.
 
-## Acceptable file sizes
+### Upload Limits Table
 
-Most AI models used by the assistant can process files up to **5 MB** each.
+| Plan Type | Maximum File Size (Per File) | Notes |
+|---------|------------------------------|------|
+| Free / Trial | Up to **2 MB** | Best for short documents and small images |
+| Basic | Up to **5 MB** | Suitable for PDFs, spreadsheets, and reports |
+| Pro | Up to **10 MB** | Supports larger documents and datasets |
+| Business / Enterprise | Up to **25 MB or more** | Designed for large files and advanced workflows |
 
-These limits are enforced by the underlying AI providers rather than by the app itself, so you may see similar restrictions across different tools that rely on the same models.
+> Upload limits apply **per file**, not per conversation.
 
-## Acceptable file formats
+---
 
-The assistant can work with the most common document and image formats used for storing text and structured information.
+## Why File Size Limits Exist
 
-- **Images**: `webp`, `jpg`, `jpeg`, `png`, `svg`
-- **Documents and data**: `html`, `csv`, `xls`, `xlsx`, `pdf`, `txt`, `doc`, `docx`, `json`, `md`, `sh`, and other plain-text–based formats
+File size limits are enforced due to:
+- AI model context limits
+- Processing performance
+- Cost and reliability constraints
+- Underlying AI provider restrictions
 
-If a format isn’t supported, try converting it to one of the types listed above (for example, exporting to `.pdf` or `.txt`) before uploading.
+Even if your plan allows larger uploads, extremely large files may still require splitting.
+
+---
+
+## Supported File Formats
+
+Nexva supports a wide range of commonly used file formats.
+
+---
+
+## Image Formats
+
+Supported image types:
+
+- `jpg`
+- `jpeg`
+- `png`
+- `webp`
+- `svg`
+
+### Image Use Cases
+- Text extraction (OCR)
+- Diagram analysis
+- Screenshot explanations
+- Image-based prompts
+
+---
+
+## Document Formats
+
+Supported document formats:
+
+- `pdf`
+- `doc`
+- `docx`
+- `txt`
+- `md`
+- `html`
+
+### Document Use Cases
+- Summarization
+- Content analysis
+- Contract review
+- Knowledge extraction
+
+---
+
+## Spreadsheet & Data Formats
+
+Supported structured data formats:
+
+- `csv`
+- `xls`
+- `xlsx`
+- `json`
+
+### Data Use Cases
+- Data analysis
+- Trend identification
+- Table summarization
+- Report generation
+
+---
+
+## Code & Configuration Files
+
+Supported code and plain-text formats include:
+
+- `py`
+- `js`
+- `ts`
+- `html`
+- `css`
+- `sh`
+- `yaml`
+- `yml`
+- `xml`
+- `env`
+
+These formats are ideal for debugging, reviewing, and explaining code.
+
+---
+
+## Unsupported File Formats
+
+Some formats are not supported directly, such as:
+- Executable files (`.exe`, `.app`)
+- Compressed archives (`.zip`, `.rar`, `.7z`)
+- Proprietary binary formats
+
+### What to Do If a File Isn’t Supported
+
+If your file type isn’t supported:
+- Convert it to a supported format (e.g., `.pdf`, `.txt`, `.csv`)
+- Extract relevant content and upload it separately
+- Split the file into smaller parts
+
+---
+
+## Large File Handling Tips
+
+If your file exceeds your plan’s upload limit:
+
+- Split large documents into sections
+- Upload only the relevant pages
+- Convert images to compressed formats (e.g., `webp`)
+- Remove unnecessary images or embedded media
+
+This improves performance and reduces credit usage.
+
+---
+
+## Model-Specific Considerations
+
+Even if your plan supports large files:
+- Some AI models have smaller context limits
+- Large files may be partially processed
+- Results may be summarized instead of fully analyzed
+
+For best results:
+- Use models with large context windows
+- Clearly specify what the AI should focus on
+
+---
+
+## What Happens If I Exceed the Limit?
+
+If you try to upload a file that exceeds your plan limit:
+- The upload will fail
+- You’ll see an error message
+- The file will not be processed
+
+You can:
+- Reduce the file size
+- Upgrade your plan
+- Split the file and upload in parts
+
+---
+
+## Security & Privacy for Uploaded Files
+
+All uploaded files are:
+- Processed securely
+- Used only to complete your request
+- Handled according to Nexva’s Data Security & Privacy policies
+
+Files are not shared with other users.
+
+---
+
+## Best Practices for File Uploads
+
+For optimal results:
+- Upload only what is necessary
+- Clearly describe what you want the AI to do
+- Avoid uploading extremely large files at once
+- Use supported formats whenever possible
+
+---
+
+## Need Higher Limits?
+
+If you frequently work with large files:
+- Consider upgrading to a higher plan
+- Contact Nexva support for enterprise options
+
+For assistance, contact:
