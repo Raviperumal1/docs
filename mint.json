@@ -61,7 +61,12 @@
       "pages": [
         "features/chat",
         "features/chatpdf",
-        "features/ai_models"
+        "features/ai_models",
+        "features/math_solver",
+        "features/video_generation",
+        "features/image_generation",
+        "features/content_detection",
+        "features/humanizer"
       ]
     },
     {
