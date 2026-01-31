@@ -1,151 +1,1773 @@
 ---
 title: Chat with PDF (ChatPDF)
-description: Complete documentation for ChatPDF, explaining how to upload files, process PDFs, chat with documents, select models, manage knowledge bases, and troubleshoot errors.
+description: Complete end-to-end documentation for ChatPDF - Upload files, process PDFs, chat with documents, select AI models, manage knowledge bases, and troubleshoot errors with detailed workflow explanations.
 slug: /feature-guides/chat-with-pdf
 sidebar_position: 2
 ---
 
 # Chat with PDF (ChatPDF)
 
-ChatPDF allows you to interact with PDFs and other files as if you were chatting with them.
-You can ask questions, summarize sections, extract data, translate content, and perform deep research directly on your documents.
+ChatPDF is an advanced document intelligence system that allows you to interact with PDFs and other documents through natural language conversations. Upload files, ask questions, extract information, summarize content, translate documents, and perform deep research—all through an intuitive chat interface.
 
-This guide explains the **full workflow**, exactly as it works in the interface—from uploading a PDF to chatting, model selection, and error handling.
-
----
-
-## What You Can Do with ChatPDF
-
-With ChatPDF, you can:
-
-- Upload PDFs and create PDF chat sessions
-- View documents alongside a chat panel
-- Ask document-aware questions
-- Get answers grounded in document content
-- Summarize pages, sections, or entire PDFs
-- Extract tables, lists, and key data
-- Translate documents into other languages
-- Chat with multiple PDFs at once
-- Manage and delete PDF chat sessions
+This comprehensive guide covers the **complete workflow**, **interface components**, **advanced features**, **best practices**, and **troubleshooting**, exactly as implemented in the production interface.
 
 ---
 
-## Interface Overview
+## Table of Contents
 
-The ChatPDF interface is divided into four main areas:
-
-1. **Sidebar Navigation**
-   - Access ChatPDF
-   - View PDF chats
-   - Upload new files
-   - Start a new chat
-
-2. **PDF Chat List**
-   - Shows uploaded PDFs
-   - Displays upload date
-   - Allows deleting a PDF chat
-
-3. **PDF Viewer**
-   - Displays the selected PDF
-   - Page navigation controls
-   - Scroll and zoom support
-
-4. **Chat Panel**
-   - AI model selector
-   - Chat input box
-   - Document-aware responses
-   - Error and status messages
+1. [Overview & Capabilities](#overview--capabilities)
+2. [Interface Architecture](#interface-architecture)
+3. [Complete Workflow: Upload to Response](#complete-workflow-upload-to-response)
+4. [Supported File Types & Content Sources](#supported-file-types--content-sources)
+5. [Uploading & Processing Documents](#uploading--processing-documents)
+6. [PDF Viewer & Navigation](#pdf-viewer--navigation)
+7. [AI Model Selection & Configuration](#ai-model-selection--configuration)
+8. [Chatting with Documents](#chatting-with-documents)
+9. [Knowledge Base Management](#knowledge-base-management)
+10. [Advanced Features & Use Cases](#advanced-features--use-cases)
+11. [Error Handling & Troubleshooting](#error-handling--troubleshooting)
+12. [Performance Optimization](#performance-optimization)
+13. [Best Practices](#best-practices)
 
 ---
 
-## Supported Content Types
+## Overview & Capabilities
 
-### Documents
-- PDF
-- DOCX
-- PPTX
-- TXT
+### What ChatPDF Does
 
-### Other Sources
-- Webpages (via URL import)
-- Images (OCR supported)
-- Audio files (transcribed)
-- Video files (transcribed)
+ChatPDF transforms static documents into interactive knowledge bases. The system combines document processing, vector embeddings, semantic search, and large language models to enable intelligent document interactions.
 
----
+### Core Capabilities
 
-## 1. Uploading PDFs and Creating PDF Chats
+- **Document Upload & Processing**: Upload PDFs, DOCX, PPTX, TXT files with automatic OCR and indexing
+- **Intelligent Q&A**: Ask questions and receive answers grounded in document content
+- **Content Extraction**: Extract tables, lists, data points, and specific sections
+- **Summarization**: Generate summaries of entire documents, chapters, or specific pages
+- **Translation**: Translate document content into multiple languages
+- **Multi-Document Chat**: Query across multiple documents simultaneously
+- **Citation & References**: Get responses with page references and citations
+- **Session Management**: Create, manage, and delete PDF chat sessions
+- **Real-time Processing**: Live document indexing with progress indicators
 
-### 1.1 Uploading a PDF
+### Use Cases
 
-To upload a PDF:
-
-1. Open **ChatPDF** from the sidebar
-2. Click **Upload File**
-3. Select a PDF from your computer
-4. Wait for processing to complete
-
-Once uploaded:
-- A new **PDF chat** appears in the left panel
-- The PDF opens automatically in the viewer
-- A dedicated chat session is created for that file
-
-Each uploaded PDF has its own chat context.
+- **Research & Analysis**: Analyze research papers, reports, and academic documents
+- **Legal Review**: Review contracts, legal documents, and compliance materials
+- **Business Intelligence**: Extract insights from business reports and presentations
+- **Education**: Study textbooks, course materials, and educational content
+- **Technical Documentation**: Navigate API docs, manuals, and specifications
+- **Content Creation**: Extract information for writing, blogging, and content development
 
 ---
 
-### 1.2 What Happens After Upload
+## Interface Architecture
 
-After upload, the system performs the following steps:
+The ChatPDF interface consists of four primary components, each serving a specific function in the document interaction workflow.
 
-1. Extracts text from the PDF
-2. Applies OCR if the PDF is scanned
-3. Splits content into pages and chunks
-4. Generates embeddings
-5. Stores embeddings in the vector database
-6. Indexes content for retrieval
+### 1. Left Sidebar Navigation
 
-Only after indexing completes can document chat begin.
+**Location**: Far left vertical panel
 
----
+**Components**:
+- **Nexva Logo & Branding**: Application identifier at the top
+- **New Chat Button**: Creates a fresh conversation session
+- **Feature Navigation Menu**:
+  - Chat (General conversations)
+  - Img Generation (Image creation tools)
+  - **ChatPDF** (Current feature - highlighted in blue)
+  - AiMath (Mathematical computations)
+  - Ai Video (Video processing)
+  - Ai Content Detection (Content analysis)
+  - Ai Humanizer (Content humanization)
 
-## 2. Viewing and Navigating the PDF
+**Footer Section**:
+- **Plan Indicator**: Shows current subscription tier (e.g., "Free")
+- **Credits Display**: Shows remaining credits (e.g., "93")
+- **User Profile**: User name and email address with settings access
 
-In the PDF viewer, you can:
-
-- Scroll through pages
-- Jump to a specific page
-- View total page count
-- Switch between PDFs
-
-The AI references the currently indexed document, not just the visible page.
-
----
-
-## 3. Selecting an AI Model
-
-At the top of the chat panel, you can choose an AI model.
-
-### Model Selection Steps
-
-1. Click the model dropdown
-2. Select a model (for example, GPT-4o-mini)
-3. The selected model is used for all responses in this chat
-
-### Model Selection Tips
-
-- Lightweight models are faster for summaries
-- Advanced models are better for deep reasoning
-- Model choice does not change document indexing
+**Functionality**: Primary navigation hub for switching between platform features and accessing account settings.
 
 ---
 
-## 4. Chatting with a PDF
+### 2. PDF Chats Panel (Middle-Left)
 
-### 4.1 Asking Questions
+**Location**: Second column from left, adjacent to sidebar
 
-Type your question in the chat input box.
+**Header Section**:
+- **Title**: "Pdf Chats"
+- **Chat Count**: Displays total number of PDF chat sessions (e.g., "1 PDF chats")
+- **Upload File Button**: Large blue button with "+" icon for file uploads
 
-Examples:
-```text
-Summarize this PDF in 5 bullet points
+**PDF Chat List**:
+Each PDF chat entry displays:
+- **PDF Icon**: Document icon indicating file type
+- **File Name**: Name of the uploaded PDF (e.g., "Sample-pdf.pdf")
+- **Upload Date**: Timestamp showing when the file was uploaded (e.g., "2026-01-31")
+- **Delete Button**: Red trash icon that appears on hover
+  - Tooltip: "Delete chat"
+  - Action: Removes the PDF chat session and associated data
+
+**Behavior**:
+- Click on any PDF entry to open it in the viewer
+- Hover to reveal the delete option
+- Selected PDF is highlighted with a background color
+- Scrollable list for multiple PDF chats
+- Persistent storage of chat history
+
+**Visual Design**:
+- Clean, card-based layout
+- Subtle borders and spacing
+- Icon-based actions for cleaner UI
+- Hover states for interactive elements
+
+---
+
+### 3. PDF Document Viewer (Center)
+
+**Location**: Center-right section, largest panel
+
+**Header Bar**:
+- **File Name Display**: Shows currently opened file (e.g., "Sample-pdf.pdf")
+- **Close Button**: Red "×" button in pink/red background to close the viewer
+- **File Type Indicator**: Icon showing file format (application/pdf)
+
+**Document Display Area**:
+- **Full-Page Rendering**: Displays PDF content at readable resolution
+- **Scroll Support**: Vertical scrolling through multi-page documents
+- **Zoom Capabilities**: Native PDF zoom functionality
+- **Text Selection**: Ability to select and copy text from the document
+- **Image Rendering**: Displays embedded images and graphics
+
+**Navigation Controls** (Bottom Bar):
+- **Previous Page Button**: Up arrow (←) to go to previous page
+- **Page Number Input**: Current page number (editable, e.g., "1")
+- **Total Pages Display**: Shows total page count (e.g., "/ 10")
+- **Next Page Button**: Down arrow (→) to go to next page
+- **Keyboard Shortcuts**: Support for arrow keys and page up/down
+
+**Visual Features**:
+- Clean, distraction-free reading experience
+- Professional document rendering
+- Responsive layout that adjusts to window size
+- Maintains aspect ratio of original document
+
+---
+
+### 4. Chat Interface Panel (Right)
+
+**Location**: Rightmost panel, adjacent to PDF viewer
+
+**Header Section**:
+- **File Reference**: Shows active document (e.g., "Sample-pdf.pdf")
+- **File Type Badge**: Displays MIME type (application/pdf)
+- **Model Selector**: Dropdown showing current AI model (e.g., "GPT-4o-mini")
+  - Clickable to change models
+  - Lists available AI models
+  - Shows model capabilities
+
+**Chat Display Area**:
+- **Message Thread**: Scrollable conversation history
+- **User Messages**: Right-aligned, distinct styling
+- **AI Responses**: Left-aligned with model icon
+- **Error Messages**: Red-bordered alerts for processing issues
+  - Example: "Error processing PDF: Could not connect to a Chroma server. Are you sure it is running?"
+- **Status Indicators**: Loading spinners, processing messages
+- **Timestamps**: Optional timestamp display for messages
+- **Citations**: Page references and document citations in responses
+
+**Input Section** (Bottom):
+- **Text Input Field**: Placeholder text "Ask me anything..."
+- **Send Button**: Blue circular button with paper plane icon
+- **Attachment Options**: (if enabled) file upload within chat
+- **Microphone Button**: Voice input capability (if enabled)
+
+**Additional Features**:
+- **Activate Windows Watermark**: (Bottom-right, system-level indicator)
+- **Settings Access**: Link to configure Windows/system settings
+- **Model Badge**: Shows active AI model (GPT-4o-mini)
+
+**Visual Design**:
+- Clean chat bubble interface
+- Color-coded messages (user vs AI)
+- Clear visual hierarchy
+- Responsive text sizing
+- Accessible controls
+
+---
+
+## Complete Workflow: Upload to Response
+
+This section details the **end-to-end process** from uploading a document to receiving AI-generated responses, including all backend operations and user-facing steps.
+
+### Step-by-Step Workflow
+
+#### Phase 1: Document Upload
+
+**User Actions**:
+1. Navigate to **ChatPDF** from the sidebar
+2. Click the blue **"Upload File"** button in the PDF Chats panel
+3. Select a file from local file system through file picker dialog
+4. Confirm selection and initiate upload
+
+**System Operations**:
+1. **File Validation**:
+   - Checks file type (PDF, DOCX, PPTX, TXT, etc.)
+   - Validates file size against limits
+   - Verifies file is not corrupted
+   - Checks for malware/security threats
+
+2. **File Transfer**:
+   - Uploads file to server via secure HTTPS
+   - Shows upload progress bar (for large files)
+   - Assigns unique file ID
+   - Creates temporary storage location
+
+3. **Initial Processing**:
+   - Saves file to persistent storage
+   - Creates database record for the document
+   - Generates thumbnail/preview
+   - Initializes PDF chat session
+
+**User Feedback**:
+- Progress indicator during upload
+- Success message: "File uploaded successfully"
+- New entry appears in PDF Chats list
+- Automatic opening of document in viewer
+
+---
+
+#### Phase 2: Document Processing & Indexing
+
+Once uploaded, the system performs extensive processing to prepare the document for intelligent interactions.
+
+**Processing Pipeline**:
+
+**1. Text Extraction**
+   - **PDF Text Layer**: Extracts embedded text from native PDFs
+   - **OCR Processing**: For scanned PDFs or images without text layer
+     - Uses Tesseract or cloud-based OCR
+     - Supports multiple languages
+     - Preserves formatting where possible
+   - **Metadata Extraction**:
+     - Author, creation date, modification date
+     - Title, subject, keywords
+     - Page count, file size
+     - Embedded fonts and images
+
+**2. Content Parsing**
+   - **Page Segmentation**: Divides document into individual pages
+   - **Section Detection**: Identifies headers, paragraphs, lists, tables
+   - **Table Extraction**: Converts tables to structured data
+   - **Image Extraction**: Saves embedded images separately
+   - **Link Preservation**: Maintains internal and external hyperlinks
+
+**3. Chunking Strategy**
+   - **Semantic Chunking**: Divides text into meaningful segments
+     - Respects paragraph boundaries
+     - Maintains context across chunks
+     - Typical chunk size: 500-1000 tokens
+   - **Overlap Implementation**: Creates overlapping chunks to preserve context
+     - Overlap size: 50-200 tokens
+     - Prevents loss of information at boundaries
+   - **Metadata Tagging**: Each chunk tagged with:
+     - Page number
+     - Section heading
+     - Chunk position
+     - Character offset
+
+**4. Embedding Generation**
+   - **Vector Embeddings**: Converts text chunks to numerical vectors
+     - Uses models like OpenAI embeddings, sentence-transformers
+     - Typical dimensions: 768 or 1536
+     - Captures semantic meaning
+   - **Batch Processing**: Processes multiple chunks simultaneously
+   - **Error Handling**: Retries failed embeddings
+   - **Quality Checks**: Validates embedding quality
+
+**5. Vector Database Storage**
+   - **Database**: Stores embeddings in vector database (e.g., Chroma, Pinecone, Weaviate)
+   - **Indexing**: Creates searchable index for fast retrieval
+   - **Metadata Storage**: Links embeddings to original text and metadata
+   - **Optimization**: Builds efficient data structures for similarity search
+
+**6. Full-Text Indexing**
+   - **Search Index**: Creates traditional keyword search index
+   - **Hybrid Search**: Enables combination of vector and keyword search
+   - **Filters**: Indexes metadata for filtering (page number, section, etc.)
+
+**Processing Timeline**:
+- Small documents (1-10 pages): 5-15 seconds
+- Medium documents (10-50 pages): 15-60 seconds
+- Large documents (50-200 pages): 1-5 minutes
+- Very large documents (200+ pages): 5-15 minutes
+
+**User Feedback During Processing**:
+- Loading spinner in chat interface
+- Progress percentage (if available)
+- Status messages: "Processing document...", "Generating embeddings...", "Building index..."
+- Estimated time remaining (for large documents)
+
+---
+
+#### Phase 3: Chat Interaction
+
+Once processing completes, users can begin chatting with the document.
+
+**User Query Flow**:
+
+**1. Query Input**
+   - User types question in chat input field
+   - Examples:
+     - "Summarize this document"
+     - "What are the key findings on page 5?"
+     - "Extract all tables from the PDF"
+     - "Who are the authors of this paper?"
+
+**2. Query Processing**
+   - **Intent Detection**: Identifies query type
+     - Factual question
+     - Summarization request
+     - Data extraction
+     - Translation
+   - **Entity Recognition**: Extracts specific references
+     - Page numbers
+     - Section names
+     - Data points
+   - **Query Embedding**: Converts query to vector embedding (same model as document)
+
+**3. Retrieval (RAG - Retrieval Augmented Generation)**
+   - **Vector Similarity Search**:
+     - Compares query embedding to document chunk embeddings
+     - Finds top K most similar chunks (typically K=3-10)
+     - Uses cosine similarity or other distance metrics
+   - **Hybrid Search** (if enabled):
+     - Combines vector search with keyword search
+     - Re-ranks results for better relevance
+   - **Context Assembly**:
+     - Retrieves full text of top chunks
+     - Includes metadata (page numbers, sections)
+     - Maintains order for coherent context
+
+**4. LLM Response Generation**
+   - **Prompt Construction**:
+     - System prompt: Defines AI behavior and constraints
+     - Retrieved context: Relevant document chunks
+     - User query: Original question
+     - Examples:
+     ```
+     System: You are a helpful AI assistant. Answer based on the provided context from the document.
+
+     Context: [Retrieved chunks with page references]
+
+     User Question: What are the key findings on page 5?
+
+     Instructions: Provide accurate answer with page citations.
+     ```
+   - **Model Inference**:
+     - Sends prompt to selected AI model (e.g., GPT-4o-mini)
+     - Model generates response based on context
+     - Applies temperature and other parameters
+   - **Citation Insertion**:
+     - Identifies which chunks were used
+     - Adds page references to response
+     - Formats citations properly
+
+**5. Response Delivery**
+   - **Streaming** (if enabled):
+     - Displays response token-by-token as generated
+     - Provides real-time feedback
+   - **Complete Response**:
+     - Full answer displayed in chat
+     - Citations and references included
+     - Formatting applied (markdown, lists, etc.)
+
+**Response Quality Factors**:
+- Retrieval accuracy: How well chunks match the query
+- Context relevance: Quality of retrieved information
+- Model capability: Sophistication of the selected AI model
+- Prompt engineering: Quality of system prompts
+
+---
+
+#### Phase 4: Iterative Conversation
+
+ChatPDF maintains conversation context for multi-turn interactions.
+
+**Conversation Management**:
+- **History Tracking**: Stores all user queries and AI responses
+- **Context Window**: Maintains recent conversation for coherence
+- **Follow-up Handling**: Resolves pronouns and references from previous messages
+- **Session Persistence**: Saves conversation for later retrieval
+
+**Examples of Iterative Queries**:
+```
+User: "Summarize the introduction"
+AI: [Provides summary]
+
+User: "What about the methodology section?"
+AI: [Understands "what about" refers to summarization, answers accordingly]
+
+User: "Compare these two sections"
+AI: [Uses context from previous responses]
+```
+
+---
+
+#### Phase 5: Session Management
+
+**Saving & Retrieving Sessions**:
+- All PDF chat sessions are automatically saved
+- Return to previous chats anytime by selecting from PDF Chats panel
+- Conversation history and document remain linked
+- Embeddings are preserved for instant responses
+
+**Deleting Sessions**:
+- Click trash icon on PDF chat entry
+- Confirmation dialog: "Are you sure you want to delete this chat?"
+- Deletion removes:
+  - Conversation history
+  - Vector embeddings
+  - Document file (optional, based on settings)
+  - Session metadata
+
+---
+
+## Supported File Types & Content Sources
+
+ChatPDF supports various document formats and content sources, each processed with format-specific optimization.
+
+### Document Formats
+
+#### PDF (Portable Document Format)
+- **Native PDFs**: Text-based PDFs with embedded text layer
+  - Fastest processing
+  - Best text extraction accuracy
+  - Preserves formatting and structure
+- **Scanned PDFs**: Image-based PDFs requiring OCR
+  - Requires OCR processing (slower)
+  - Accuracy depends on scan quality
+  - May lose some formatting
+- **Mixed PDFs**: Combination of text and scanned pages
+  - Hybrid processing approach
+  - Automatic detection of page types
+- **Protected PDFs**: Password-protected or encrypted PDFs
+  - Requires password for processing
+  - Some restrictions may prevent extraction
+- **Forms & Interactive PDFs**: PDFs with fillable forms
+  - Form fields extracted as structured data
+  - Interactive elements preserved
+
+**Supported Features**:
+- Multi-page support (up to 1000+ pages)
+- Embedded images and graphics
+- Tables and structured data
+- Hyperlinks (internal and external)
+- Annotations and comments
+- Bookmarks and table of contents
+
+---
+
+#### DOCX (Microsoft Word)
+- **Text Extraction**: Full text with formatting
+- **Styles Preservation**: Headings, paragraphs, lists
+- **Tables**: Converted to structured format
+- **Images**: Extracted with captions
+- **Comments & Track Changes**: Included in processing
+- **Metadata**: Author, creation date, etc.
+
+**Processing Notes**:
+- Converted to text during processing
+- Formatting used to understand document structure
+- Tables often extracted better than in PDFs
+
+---
+
+#### PPTX (Microsoft PowerPoint)
+- **Slide-by-Slide Processing**: Each slide treated as a section
+- **Text Extraction**: Title, body text, notes
+- **Visual Elements**: Images, charts, diagrams extracted
+- **Slide Numbers**: Used for citation references
+- **Speaker Notes**: Included in context
+
+**Use Cases**:
+- Presentation analysis
+- Content extraction for reports
+- Educational material review
+
+---
+
+#### TXT (Plain Text)
+- **Simple Processing**: Fastest format to index
+- **No Formatting**: Pure text content
+- **Large File Support**: Handles very large text files
+- **Encoding Support**: UTF-8, ASCII, Latin-1
+
+**Best For**:
+- Code files
+- Log files
+- Simple notes and documentation
+- CSV data (processed as text)
+
+---
+
+### Other Supported Sources
+
+#### Web Pages (URL Import)
+- **URL Input**: Paste URL instead of uploading file
+- **Web Scraping**: Extracts main content from web pages
+- **Article Detection**: Identifies article text vs navigation/ads
+- **Image Extraction**: Downloads and processes embedded images
+
+**Supported Sites**:
+- News articles
+- Blog posts
+- Documentation sites
+- Wikipedia articles
+- Research repositories
+
+---
+
+#### Images (OCR Support)
+- **Image Formats**: PNG, JPG, JPEG, WEBP, GIF
+- **OCR Processing**: Extracts text from images
+- **Handwriting Recognition**: Limited support for handwritten text
+- **Multi-language OCR**: Supports 100+ languages
+
+**Use Cases**:
+- Scanned documents
+- Screenshots
+- Photographs of text
+- Infographics
+
+---
+
+#### Audio Files (Transcription)
+- **Audio Formats**: MP3, WAV, M4A, FLAC
+- **Automatic Transcription**: Speech-to-text conversion
+- **Speaker Diarization**: Identifies different speakers
+- **Timestamp Preservation**: Links text to audio timeline
+
+**Use Cases**:
+- Podcast transcripts
+- Interview recordings
+- Lecture recordings
+- Meeting notes
+
+---
+
+#### Video Files (Transcription)
+- **Video Formats**: MP4, MOV, AVI, MKV
+- **Audio Extraction**: Extracts audio track for transcription
+- **Subtitle Support**: Uses existing subtitles if available
+- **Frame Extraction**: Can extract key frames for visual analysis
+
+**Use Cases**:
+- Educational videos
+- Conference recordings
+- Tutorial videos
+- Documentary analysis
+
+---
+
+### File Size & Format Limits
+
+**Default Limits** (may vary by subscription tier):
+- **PDF**: Up to 100 MB, 1000 pages
+- **DOCX**: Up to 50 MB
+- **PPTX**: Up to 50 MB
+- **TXT**: Up to 20 MB
+- **Images**: Up to 10 MB per image
+- **Audio**: Up to 100 MB, 2 hours duration
+- **Video**: Up to 500 MB, 2 hours duration
+
+**Upgrade Options**:
+- Premium plans support larger files
+- Enterprise plans have custom limits
+- Batch processing for multiple files
+
+---
+
+## Uploading & Processing Documents
+
+### Upload Methods
+
+#### Method 1: Click Upload Button
+1. Navigate to **ChatPDF** in sidebar
+2. Click blue **"Upload File"** button
+3. File picker opens
+4. Select document(s)
+5. Click "Open" to upload
+
+#### Method 2: Drag & Drop (if supported)
+1. Open ChatPDF interface
+2. Drag file from file explorer
+3. Drop onto upload area
+4. Processing begins automatically
+
+#### Method 3: URL Import (Web Content)
+1. Click "Upload File" or dedicated URL input
+2. Select "Import from URL" option
+3. Paste webpage URL
+4. Click "Import"
+5. System scrapes and processes content
+
+---
+
+### Upload Process Details
+
+**Pre-Upload Validation**:
+- File type check against supported formats
+- File size validation against limits
+- Duplicate detection (optional)
+- Virus/malware scanning (if enabled)
+
+**During Upload**:
+- **Progress Indicator**: Shows upload percentage
+- **Cancel Option**: Ability to cancel mid-upload
+- **Network Handling**: Automatic retry on connection issues
+- **Speed Optimization**: Chunked upload for large files
+
+**Post-Upload Actions**:
+- **Immediate Display**: File appears in PDF Chats list
+- **Processing Status**: Indicator shows processing in progress
+- **Notification**: Success or error message displayed
+- **Auto-Open**: Document opens in viewer automatically
+
+---
+
+### Processing States
+
+Users should understand the various processing states:
+
+**1. Uploading**
+- **Icon**: Spinning upload icon or progress bar
+- **Message**: "Uploading: 45%"
+- **Action**: Wait for completion
+
+**2. Processing**
+- **Icon**: Gear icon or spinning loader
+- **Message**: "Processing document..."
+- **Details**: May show sub-steps (OCR, embedding, indexing)
+- **Duration**: Varies by document size and complexity
+
+**3. Ready**
+- **Icon**: Green checkmark or active status
+- **Message**: "Ready to chat" or no message
+- **Action**: Can begin asking questions
+
+**4. Error**
+- **Icon**: Red error icon or alert
+- **Message**: Specific error description
+- **Examples**:
+  - "Error processing PDF: Could not connect to a Chroma server. Are you sure it is running?"
+  - "File too large. Please upgrade your plan."
+  - "Unsupported file format."
+- **Action**: Address error or try different file
+
+---
+
+### OCR Processing Details
+
+For scanned PDFs and images, OCR (Optical Character Recognition) is critical:
+
+**OCR Pipeline**:
+1. **Image Preprocessing**:
+   - Deskewing: Straightens tilted images
+   - Noise Removal: Removes artifacts and background noise
+   - Contrast Enhancement: Improves text visibility
+   - Binarization: Converts to black and white for better recognition
+
+2. **Text Detection**:
+   - Identifies regions containing text
+   - Distinguishes text from images, borders, etc.
+   - Detects text orientation and alignment
+
+3. **Character Recognition**:
+   - Recognizes individual characters
+   - Uses machine learning models (e.g., Tesseract)
+   - Applies language-specific dictionaries
+
+4. **Post-Processing**:
+   - Spell checking and correction
+   - Format reconstruction (paragraphs, lists)
+   - Confidence scoring for each word
+
+**OCR Accuracy Factors**:
+- **Image Quality**: Higher DPI = better accuracy (300 DPI recommended)
+- **Font Type**: Standard fonts work best; handwriting is challenging
+- **Language**: Most accurate for English, varies for other languages
+- **Noise & Artifacts**: Clean scans perform better
+- **Layout Complexity**: Simple layouts easier than multi-column
+
+**OCR Languages Supported**:
+- English, Spanish, French, German, Italian, Portuguese
+- Chinese (Simplified & Traditional), Japanese, Korean
+- Arabic, Russian, Hindi, and 90+ other languages
+
+---
+
+### Embedding Generation Explained
+
+Embeddings are the core technology enabling semantic search:
+
+**What Are Embeddings?**
+- Numerical vector representations of text
+- Capture semantic meaning, not just keywords
+- Allow finding similar content even with different wording
+- Example: "automobile" and "car" have similar embeddings
+
+**Embedding Models Used**:
+- **OpenAI Embeddings**: `text-embedding-ada-002` or `text-embedding-3-small`
+- **Sentence Transformers**: Open-source alternatives like `all-MiniLM-L6-v2`
+- **Custom Models**: Fine-tuned for specific domains
+
+**Embedding Process**:
+1. Text chunk (e.g., "The quick brown fox jumps over the lazy dog")
+2. Tokenization: Split into tokens
+3. Model inference: Convert to vector (e.g., 1536 dimensions)
+4. Vector: `[0.002, -0.123, 0.456, ..., 0.089]`
+
+**Why Embeddings Matter**:
+- Enable semantic search ("find similar concepts")
+- Power question-answering capabilities
+- Allow cross-lingual search (with multilingual models)
+- Improve retrieval accuracy over keyword search
+
+---
+
+## PDF Viewer & Navigation
+
+The integrated PDF viewer provides a seamless document browsing experience alongside the chat interface.
+
+### Viewer Features
+
+#### Display Capabilities
+- **High-Resolution Rendering**: Clear, readable text at all zoom levels
+- **Responsive Layout**: Adapts to window resizing
+- **Aspect Ratio Preservation**: Maintains original document proportions
+- **Color Accuracy**: Preserves colors from original PDF
+- **Font Rendering**: Displays fonts correctly (with fallbacks)
+
+#### Interaction Features
+- **Text Selection**: Select and copy text directly from PDF
+- **Hyperlink Support**: Click links to navigate or open URLs
+- **Bookmark Navigation**: Jump to bookmarked sections (if PDF has bookmarks)
+- **Table of Contents**: Access document TOC for quick navigation (if available)
+- **Search Within Document**: Find specific text (if supported)
+
+---
+
+### Navigation Controls
+
+**Page Navigation Methods**:
+
+**1. Navigation Bar (Bottom)**
+- **Previous Page Button**: Click up arrow (←) to go back one page
+- **Page Input Field**: Type specific page number and press Enter
+- **Total Pages Display**: Shows current page out of total (e.g., "1 / 10")
+- **Next Page Button**: Click down arrow (→) to advance one page
+
+**2. Keyboard Shortcuts** (if supported)
+- `Arrow Up` / `Page Up`: Previous page
+- `Arrow Down` / `Page Down`: Next page
+- `Home`: First page
+- `End`: Last page
+- `Ctrl + F`: Search within document
+
+**3. Mouse/Trackpad**
+- **Scroll**: Vertical scrolling through pages
+- **Zoom**: Ctrl + Scroll (or pinch on trackpad) to zoom in/out
+- **Pan**: Click and drag to move view (when zoomed)
+
+**4. Touch Gestures** (mobile/tablet)
+- **Swipe**: Swipe up/down to scroll
+- **Pinch**: Pinch to zoom in/out
+- **Double-Tap**: Zoom to section
+
+---
+
+### Zoom & View Options
+
+**Zoom Levels**:
+- **Fit Width**: Fits page width to viewer window
+- **Fit Page**: Fits entire page in viewer
+- **Custom Zoom**: Set specific percentage (50%, 100%, 150%, 200%, etc.)
+- **Actual Size**: Display at 100% size
+
+**View Modes** (if supported):
+- **Single Page**: One page at a time
+- **Continuous Scroll**: All pages in scrollable view
+- **Two-Page Spread**: Two pages side-by-side (for books, magazines)
+- **Book View**: Mimic physical book with facing pages
+
+---
+
+### Document Information
+
+Access document metadata:
+- **File Name**: Display in header
+- **Page Count**: Total number of pages
+- **File Size**: Size of PDF file
+- **Author**: Document creator (if available)
+- **Creation Date**: When document was created
+- **Modification Date**: Last modified timestamp
+- **PDF Version**: PDF standard version (e.g., PDF 1.7)
+
+---
+
+### Viewer Performance
+
+**Optimization Techniques**:
+- **Lazy Loading**: Only renders visible pages
+- **Caching**: Stores rendered pages for instant re-display
+- **Progressive Rendering**: Displays low-res preview, then high-res
+- **Thumbnail Generation**: Pre-generates page thumbnails for sidebar
+
+**Performance Tips**:
+- Large PDFs (100+ pages) may take longer to render
+- Complex graphics increase rendering time
+- Zoom out to improve scrolling performance
+- Close other applications to free up memory
+
+---
+
+## AI Model Selection & Configuration
+
+The chat interface allows selection of different AI models, each with unique capabilities and trade-offs.
+
+### Available Models
+
+**Note**: Exact model availability depends on your subscription tier and platform configuration. Common models include:
+
+#### GPT-4o-mini (Example from Screenshot)
+- **Provider**: OpenAI
+- **Strengths**:
+  - Fast response times
+  - Cost-effective
+  - Good for general Q&A
+  - Efficient summarization
+- **Limitations**:
+  - Less sophisticated reasoning than larger models
+  - May struggle with complex multi-step tasks
+- **Best For**:
+  - Quick questions
+  - Simple summaries
+  - Data extraction
+  - General document queries
+
+#### GPT-4o
+- **Provider**: OpenAI
+- **Strengths**:
+  - Advanced reasoning
+  - Better context understanding
+  - Multimodal (text + images)
+  - Higher accuracy
+- **Limitations**:
+  - Slower than GPT-4o-mini
+  - Higher cost per query
+- **Best For**:
+  - Complex analysis
+  - Nuanced questions
+  - Research synthesis
+  - Critical document review
+
+#### GPT-4 Turbo
+- **Provider**: OpenAI
+- **Strengths**:
+  - Very large context window (128K tokens)
+  - Strong performance
+  - Good for long documents
+- **Best For**:
+  - Very long PDFs
+  - Multi-document analysis
+  - Comprehensive summaries
+
+#### Claude (Anthropic Models)
+- **Models**: Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku
+- **Strengths**:
+  - Strong analytical capabilities
+  - Good at following instructions
+  - Excellent for long-form content
+  - Strong ethical guardrails
+- **Best For**:
+  - Academic research
+  - Legal document review
+  - Detailed analysis
+
+#### Open-Source Models
+- **Examples**: Llama 3, Mistral, Mixtral
+- **Strengths**:
+  - Privacy (can run locally)
+  - Cost-effective
+  - Customizable
+- **Limitations**:
+  - May require more computational resources
+  - Variable performance
+- **Best For**:
+  - Privacy-sensitive documents
+  - Offline use
+  - Custom deployments
+
+---
+
+### Model Selection Process
+
+**How to Select a Model**:
+1. Locate the **model selector** at the top of the chat panel
+2. Current model is displayed (e.g., "GPT-4o-mini")
+3. Click the dropdown to view available models
+4. Select desired model from the list
+5. Model changes immediately for all subsequent queries
+
+**Model Selection Criteria**:
+
+**Speed vs Quality**:
+- **Fast models** (e.g., GPT-4o-mini, Claude Haiku): Quick responses, good for simple tasks
+- **Powerful models** (e.g., GPT-4o, Claude Opus): Slower but more accurate and sophisticated
+
+**Cost Considerations**:
+- Different models have different credit costs
+- Check your remaining credits before selecting expensive models
+- Use faster models for exploratory queries, switch to powerful models for final answers
+
+**Task-Specific Selection**:
+- **Summarization**: Medium models work well (GPT-4o-mini, Claude Sonnet)
+- **Data Extraction**: Fast models sufficient (GPT-4o-mini, Claude Haiku)
+- **Complex Analysis**: Use powerful models (GPT-4o, Claude Opus)
+- **Translation**: Medium to powerful models
+- **Code Extraction**: Powerful models for better accuracy
+
+---
+
+### Model Configuration Options
+
+**Advanced Settings** (if available):
+- **Temperature**: Controls randomness
+  - Low (0.0-0.3): Deterministic, factual responses
+  - Medium (0.4-0.7): Balanced creativity and accuracy
+  - High (0.8-1.0): More creative, diverse responses
+- **Max Tokens**: Limits response length
+- **Top P**: Nucleus sampling parameter
+- **Presence Penalty**: Reduces repetition
+- **Frequency Penalty**: Encourages diversity
+
+**Recommended Settings for ChatPDF**:
+- **Temperature**: 0.1-0.3 (for factual accuracy)
+- **Max Tokens**: 1000-2000 (for complete responses)
+- **Top P**: 0.9 (balanced)
+
+---
+
+## Chatting with Documents
+
+Now that your document is processed and you've selected a model, you can begin intelligent conversations.
+
+### Types of Queries
+
+#### 1. Factual Questions
+Ask specific questions about document content.
+
+**Examples**:
+```
+- "What is the main conclusion of this report?"
+- "Who are the authors of this paper?"
+- "What date was this document created?"
+- "What are the key findings on page 7?"
+- "How many participants were in the study?"
+```
+
+**Best Practices**:
+- Be specific about what you're asking
+- Reference page numbers if known
+- Ask one question at a time for clarity
+
+---
+
+#### 2. Summarization Requests
+Generate summaries of varying lengths and scopes.
+
+**Examples**:
+```
+- "Summarize this entire document in 3 paragraphs"
+- "Give me a one-sentence summary of the introduction"
+- "Summarize the key points from pages 10-15"
+- "Create a bullet-point summary of the main arguments"
+- "What are the executive summary highlights?"
+```
+
+**Types of Summaries**:
+- **Abstractive**: AI rewrites in its own words
+- **Extractive**: Pulls key sentences directly from document
+- **Hierarchical**: Multi-level summaries (executive summary → detailed summary → full)
+
+---
+
+#### 3. Data Extraction
+Extract specific information, tables, lists, or data points.
+
+**Examples**:
+```
+- "Extract all email addresses from this document"
+- "List all companies mentioned in the report"
+- "Create a table of all numerical data on page 5"
+- "Extract the bibliography/references section"
+- "List all action items from this meeting minutes"
+```
+
+**Structured Data Requests**:
+- Tables in markdown or CSV format
+- Lists in bullet points or numbered format
+- JSON output for programmatic use
+
+---
+
+#### 4. Translation
+Translate document content into different languages.
+
+**Examples**:
+```
+- "Translate the first paragraph to Spanish"
+- "Convert this entire document to French"
+- "Translate the conclusion section to German"
+- "Give me a Japanese translation of pages 1-3"
+```
+
+**Supported Languages**: Depends on model, typically 50+ languages including:
+- Spanish, French, German, Italian, Portuguese
+- Chinese, Japanese, Korean
+- Arabic, Russian, Hindi
+- And many more
+
+---
+
+#### 5. Analysis & Insights
+Deeper analytical queries requiring reasoning.
+
+**Examples**:
+```
+- "What are the strengths and weaknesses of this argument?"
+- "Compare the methodology in section 2 with section 4"
+- "What biases might exist in this report?"
+- "Identify any contradictions in the document"
+- "What are the implications of these findings?"
+```
+
+**Advanced Analysis**:
+- Sentiment analysis
+- Bias detection
+- Argumentation structure
+- Rhetorical analysis
+- Statistical interpretation
+
+---
+
+#### 6. Comparison Queries
+Compare sections or multiple documents.
+
+**Examples**:
+```
+- "Compare the introduction and conclusion"
+- "How do the results differ from the hypothesis?"
+- "Contrast the 2023 data with 2024 data"
+```
+
+**Multi-Document Comparison** (if supported):
+```
+- "Compare the methodology in Document A and Document B"
+- "Which report has more positive findings?"
+```
+
+---
+
+#### 7. Creative & Transformative Tasks
+Repurpose or transform document content.
+
+**Examples**:
+```
+- "Convert this technical section to layman's terms"
+- "Rewrite this as a blog post"
+- "Create quiz questions from this chapter"
+- "Generate flashcards from key concepts"
+- "Draft a social media post about this research"
+```
+
+---
+
+### Query Formatting Tips
+
+**For Best Results**:
+
+**Be Specific**:
+- ❌ "Tell me about the document"
+- ✅ "Summarize the key findings in the methodology section"
+
+**Use Page References**:
+- ❌ "What does it say about sales?"
+- ✅ "What sales data is presented on page 12?"
+
+**Request Specific Formats**:
+- ❌ "Give me the data"
+- ✅ "Extract the data from Table 2 and format as markdown"
+
+**Break Complex Queries into Steps**:
+- ❌ "Summarize, extract tables, and translate to Spanish"
+- ✅ First: "Summarize the document"
+    Then: "Extract all tables"
+    Finally: "Translate the summary to Spanish"
+
+---
+
+### Understanding AI Responses
+
+**Response Components**:
+
+**1. Direct Answer**
+The main response to your query, grounded in document content.
+
+**2. Citations & References**
+Page numbers or section references showing where information came from.
+
+Example:
+```
+According to the report, sales increased by 15% in Q4 (Page 23). The growth was driven primarily by new customer acquisition (Pages 24-25).
+```
+
+**3. Confidence Indicators** (if provided)
+Some systems indicate confidence level:
+- "Based on the document..."
+- "The text suggests..."
+- "It's unclear from the document, but..."
+
+**4. Limitations & Caveats**
+Honest acknowledgment when information is not in the document:
+- "This information is not found in the document"
+- "The document doesn't specify..."
+
+---
+
+### Follow-Up Conversations
+
+ChatPDF maintains context across the conversation:
+
+**Example Conversation Flow**:
+```
+User: "Summarize this report"
+AI: [Provides summary]
+
+User: "What about the financial data?"
+AI: [Understands "what about" means "summarize" based on previous context]
+
+User: "Can you elaborate on that?"
+AI: [Knows "that" refers to the financial data]
+
+User: "Compare this to the previous quarter"
+AI: [Looks for prior quarter data in the document]
+```
+
+**Context Management**:
+- System remembers previous questions and answers
+- Can reference "earlier findings" or "as mentioned above"
+- Maintains coherent multi-turn dialogues
+
+---
+
+### Response Quality & Accuracy
+
+**Factors Affecting Quality**:
+
+**1. Retrieval Accuracy**
+- How well the system finds relevant document sections
+- Depends on query clarity and chunking quality
+
+**2. Context Relevance**
+- Whether retrieved chunks actually answer the question
+- Can be improved by more specific queries
+
+**3. Model Capability**
+- More advanced models provide better reasoning
+- Smaller models may miss nuances
+
+**4. Document Quality**
+- Clear, well-structured documents yield better results
+- Scanned/OCR documents may have errors
+
+**Improving Response Quality**:
+- Rephrase questions if initial answer is unsatisfactory
+- Be more specific about what section or page to focus on
+- Try a more powerful AI model
+- Ask for clarification or elaboration
+
+---
+
+## Knowledge Base Management
+
+Manage your PDF chats, sessions, and knowledge bases efficiently.
+
+### Viewing PDF Chats
+
+**PDF Chats List**:
+- All uploaded PDFs appear in the middle-left panel
+- Listed in reverse chronological order (newest first)
+- Each entry shows:
+  - File name
+  - Upload date
+  - File type icon
+  - Quick access to delete
+
+**Organizing PDF Chats**:
+- Search/filter by file name (if supported)
+- Sort by date, name, or size
+- Tag or categorize documents (if supported)
+
+---
+
+### Switching Between Documents
+
+**To Switch Documents**:
+1. Click on any PDF entry in the PDF Chats list
+2. The selected PDF opens in the viewer
+3. Chat panel switches context to that document
+4. Previous chat history for that document is loaded
+
+**Multi-Tab Workflow** (if supported):
+- Open multiple PDFs in separate tabs/windows
+- Compare documents side-by-side
+- Switch between contexts easily
+
+---
+
+### Deleting PDF Chats
+
+**Deletion Process**:
+1. Hover over PDF chat entry in the list
+2. Click the red **trash icon** that appears
+3. Confirmation dialog: "Delete chat?"
+   - "Are you sure you want to delete this chat? This action cannot be undone."
+4. Click "Confirm" to delete, "Cancel" to abort
+
+**What Gets Deleted**:
+- ✅ Chat conversation history with that document
+- ✅ Vector embeddings and indexed data
+- ✅ Session metadata
+- ❓ Original file (depends on settings - may be retained or deleted)
+
+**Deletion is Permanent**:
+- Cannot recover deleted chats
+- Must re-upload and re-process document to restore
+
+**Best Practice**:
+- Export important conversations before deleting
+- Download critical insights or summaries
+- Maintain local backups of important PDFs
+
+---
+
+### Bulk Operations (if supported)
+
+**Batch Upload**:
+- Select multiple files at once during upload
+- Process multiple PDFs simultaneously
+- Create knowledge base from multiple documents
+
+**Batch Delete**:
+- Select multiple PDF chats
+- Delete all at once
+- Useful for cleaning up old sessions
+
+**Export Conversations**:
+- Export chat history as text, PDF, or HTML
+- Save for records or sharing
+- Include or exclude AI responses
+
+---
+
+### Storage & Limits
+
+**Storage Quotas** (varies by plan):
+- **Free Tier**: Limited to X documents, Y MB total
+- **Pro Tier**: Increased limits (e.g., 100 documents, 10 GB)
+- **Enterprise**: Custom storage limits
+
+**Monitoring Storage**:
+- Check storage usage in account settings
+- View per-document size
+- Receive warnings when approaching limits
+
+**Managing Storage**:
+- Delete unused PDF chats
+- Archive important documents locally
+- Upgrade plan if consistently hitting limits
+
+---
+
+## Advanced Features & Use Cases
+
+### Multi-Document Chat
+
+**Chatting Across Multiple PDFs**:
+Some systems allow querying multiple documents simultaneously.
+
+**How It Works**:
+1. Upload multiple related documents
+2. Enable "Multi-Document Mode" or select multiple PDFs
+3. Ask questions that span all documents
+4. AI retrieves context from all selected documents
+
+**Example Queries**:
+```
+- "Compare the findings in Report A and Report B"
+- "Which document discusses climate change most extensively?"
+- "Summarize all quarterly reports from 2024"
+- "Find all mentions of 'artificial intelligence' across all documents"
+```
+
+**Use Cases**:
+- Research literature reviews
+- Legal case comparisons
+- Multi-quarter financial analysis
+- Cross-referencing academic papers
+
+---
+
+### Table Extraction & Analysis
+
+**Extracting Tables**:
+ChatPDF can identify, extract, and format tables from PDFs.
+
+**Request Examples**:
+```
+- "Extract all tables from this document"
+- "Convert Table 3 on page 15 to markdown format"
+- "List all numerical data in table format"
+- "Export tables as CSV"
+```
+
+**Table Formats**:
+- **Markdown**: For documentation and reports
+- **CSV**: For spreadsheet import
+- **JSON**: For programmatic use
+- **Plain Text**: Simple readable format
+
+**Table Analysis**:
+```
+- "What is the highest value in the sales table?"
+- "Calculate the average from column 3"
+- "Summarize trends in the financial table"
+```
+
+---
+
+### Code & Formula Extraction
+
+**Extract Code Snippets**:
+If PDF contains code (programming tutorials, documentation):
+
+```
+- "Extract all Python code from this document"
+- "List all SQL queries mentioned"
+- "Convert code snippets to markdown code blocks"
+```
+
+**Extract Formulas**:
+For scientific or mathematical documents:
+
+```
+- "Extract all mathematical equations"
+- "List formulas from the methodology section"
+- "Explain the formula on page 45"
+```
+
+---
+
+### Citation & Reference Management
+
+**Generating Citations**:
+```
+- "Create a bibliography entry for this document"
+- "Generate an APA citation"
+- "Format this as MLA style"
+```
+
+**Extracting References**:
+```
+- "List all references/bibliography"
+- "Extract all citations from this paper"
+- "What sources does the author cite?"
+```
+
+---
+
+### Custom Prompts & Templates
+
+**Create Reusable Prompts**:
+Save frequently used query templates:
+
+**Example Templates**:
+```
+- "Summarize [SECTION] in [NUMBER] sentences"
+- "Extract all [DATA TYPE] from page [PAGE NUMBER]"
+- "Compare [TOPIC A] and [TOPIC B] in this document"
+```
+
+**Saved Prompts Library** (if supported):
+- Store custom prompts
+- Quick access to templates
+- Share prompts with team members
+
+---
+
+### Collaboration Features (if available)
+
+**Share PDF Chats**:
+- Generate shareable links to PDF chat sessions
+- Collaborators can view chat history
+- Optionally allow collaborators to ask questions
+
+**Team Workspaces**:
+- Shared knowledge bases
+- Collaborative document analysis
+- Team annotations and comments
+
+---
+
+### API & Integration
+
+**API Access** (for developers):
+- Programmatic document upload
+- Automated question-answering
+- Batch processing
+- Webhook notifications
+
+**Third-Party Integrations**:
+- Google Drive: Import PDFs directly
+- Dropbox: Sync documents
+- Slack: Share insights in channels
+- Notion: Embed document chats
+
+---
+
+## Error Handling & Troubleshooting
+
+### Common Errors
+
+#### 1. "Error processing PDF: Could not connect to a Chroma server. Are you sure it is running?"
+
+**Cause**: Vector database (Chroma) is not accessible.
+
+**Solutions**:
+- **Backend Issue**: This is typically a server-side problem. Contact support.
+- **Network Issue**: Check your internet connection.
+- **Service Outage**: Check platform status page for known issues.
+- **Retry**: Try uploading the document again after a few minutes.
+
+**For Self-Hosted Deployments**:
+- Verify Chroma server is running: `docker ps` or check service status
+- Check Chroma connection settings in configuration
+- Ensure network connectivity between application and Chroma
+- Review Chroma server logs for errors
+
+---
+
+#### 2. "File too large. Please upgrade your plan."
+
+**Cause**: Document exceeds size limit for your subscription tier.
+
+**Solutions**:
+- **Upgrade Plan**: Subscribe to a higher tier with larger limits
+- **Split Document**: Divide PDF into smaller parts
+- **Compress PDF**: Use PDF compression tools to reduce file size
+- **Remove Images**: Create text-only version if images are not critical
+
+**Prevention**:
+- Check file size before uploading
+- Be aware of your plan's limits
+- Use appropriate tier for your needs
+
+---
+
+#### 3. "Unsupported file format"
+
+**Cause**: File type is not supported by ChatPDF.
+
+**Solutions**:
+- **Convert Format**: Convert to PDF, DOCX, or TXT
+- **Check Extension**: Ensure file has correct extension (.pdf, .docx, etc.)
+- **File Corruption**: Try opening in another application to verify it's not corrupted
+
+**Conversion Tools**:
+- Microsoft Word → PDF: Use "Save As PDF"
+- Images → PDF: Use online converters or imaging software
+- Web Pages → PDF: Print to PDF from browser
+
+---
+
+#### 4. "OCR failed. Unable to extract text from scanned PDF."
+
+**Cause**: OCR process encountered an error or image quality is too low.
+
+**Solutions**:
+- **Improve Scan Quality**: Re-scan at higher DPI (300 DPI recommended)
+- **Clean Image**: Remove noise, adjust contrast
+- **Use Different Scanner**: Try alternative scanning hardware
+- **Pre-Process Image**: Use image editing software to enhance quality
+- **Alternative OCR**: Use external OCR tool (Adobe Acrobat, Tesseract) then upload result
+
+---
+
+#### 5. "Processing timeout. Document is too complex."
+
+**Cause**: Document processing took too long (usually for very large or complex PDFs).
+
+**Solutions**:
+- **Split Document**: Break into smaller sections
+- **Simplify PDF**: Remove complex graphics or reduce resolution
+- **Retry During Off-Peak**: Process during low-traffic times
+- **Contact Support**: For critical documents, request manual processing
+
+---
+
+#### 6. "Rate limit exceeded. Please try again later."
+
+**Cause**: Too many requests in a short time period.
+
+**Solutions**:
+- **Wait**: Pause for the specified time (usually a few minutes)
+- **Reduce Frequency**: Space out uploads and queries
+- **Upgrade Plan**: Higher tiers often have increased rate limits
+
+---
+
+#### 7. "Unable to retrieve context. Document may not be indexed."
+
+**Cause**: Vector database doesn't have embeddings for the document.
+
+**Solutions**:
+- **Wait for Indexing**: Ensure processing completed successfully
+- **Re-Upload**: Delete and re-upload the document
+- **Check Status**: Verify document shows "Ready" status
+- **Clear Cache**: Clear browser cache and refresh
+
+---
+
+### Debugging Tips
+
+**If Responses Seem Inaccurate**:
+1. **Verify Question Clarity**: Rephrase your query more specifically
+2. **Check Page References**: Manually verify information in PDF viewer
+3. **Try Different Model**: Switch to more powerful AI model
+4. **Review Retrieved Context**: Ask AI to show what text it's using
+5. **Report Issue**: Use feedback button to flag incorrect responses
+
+**If Upload Fails Repeatedly**:
+1. **Check File Integrity**: Open PDF in another application
+2. **Try Different Browser**: Switch browsers (Chrome, Firefox, Safari)
+3. **Disable Extensions**: Turn off browser extensions that might interfere
+4. **Clear Cache**: Clear browser cache and cookies
+5. **Try Smaller File**: Test with a simple, small PDF first
+
+**If Chat Panel Is Unresponsive**:
+1. **Refresh Page**: Reload the browser page
+2. **Clear Session**: Delete PDF chat and re-upload
+3. **Check Network**: Verify stable internet connection
+4. **Try Incognito**: Use incognito/private browsing mode
+5. **Different Device**: Test on another device or network
+
+---
+
+### Getting Help
+
+**Self-Service Resources**:
+- **FAQ Section**: Check frequently asked questions
+- **Documentation**: Review full documentation (this guide!)
+- **Video Tutorials**: Watch walkthrough videos
+- **Community Forum**: Ask questions in user community
+
+**Contact Support**:
+- **Email Support**: support@nexva.com (example)
+- **Live Chat**: Chat widget in bottom-right corner
+- **Ticket System**: Submit detailed support ticket
+- **Phone Support**: (For enterprise plans)
+
+**What to Include in Support Requests**:
+- **Error Message**: Exact text of error
+- **Screenshot**: Visual of the problem
+- **Document Info**: File name, size, type (do NOT send sensitive documents)
+- **Steps to Reproduce**: What you did before the error occurred
+- **Browser/Device**: Your browser version, OS, device type
+- **Account Info**: Your username or account email
+
+---
+
+## Performance Optimization
+
+### Optimizing Upload & Processing
+
+**Faster Processing Tips**:
+1. **Use Native PDFs**: Avoid scanned PDFs when possible
+2. **Reduce File Size**: Compress images, remove unnecessary pages
+3. **Simplify Graphics**: Complex diagrams slow processing
+4. **Upload During Off-Peak**: Faster during low-traffic times
+5. **Smaller Documents**: Break large PDFs into chapters/sections
+
+**Bandwidth Optimization**:
+- **Wired Connection**: Use Ethernet instead of Wi-Fi for large uploads
+- **Close Background Apps**: Stop other downloads/uploads
+- **Browser Cache**: Enable caching for faster re-access
+
+---
+
+### Optimizing Query Performance
+
+**Faster Responses**:
+1. **Choose Faster Models**: GPT-4o-mini is quicker than GPT-4o
+2. **Specific Queries**: Targeted questions retrieve faster than broad ones
+3. **Limit Response Length**: Request concise answers for speed
+4. **Avoid Streaming**: If not needed, disable token-by-token streaming
+
+**Retrieval Optimization**:
+- **Page-Specific Queries**: "What's on page 5?" is faster than "Summarize the document"
+- **Focused Context**: Ask about specific sections rather than entire document
+
+---
+
+### Managing Resource Usage
+
+**Credit Management**:
+- **Monitor Credits**: Check remaining credits regularly
+- **Efficient Model Selection**: Use appropriate model for task complexity
+- **Batch Queries**: Combine multiple questions into one if possible
+- **Archive Old Chats**: Delete unused PDF chats to free resources
+
+**Network Efficiency**:
+- **Caching**: Frequently accessed documents load faster
+- **Connection Stability**: Maintain stable connection during processing
+- **Avoid Concurrent Uploads**: Upload one document at a time
+
+---
+
+## Best Practices
+
+### Document Preparation
+
+**Before Uploading**:
+1. **Verify Quality**: Ensure PDF is readable and not corrupted
+2. **Check Size**: Confirm file is within plan limits
+3. **Remove Sensitive Data**: Redact confidential information if needed
+4. **Organize Files**: Use descriptive file names for easy identification
+5. **Optimize Size**: Compress if necessary without losing quality
+
+**For Scanned PDFs**:
+- Scan at 300 DPI or higher
+- Use grayscale for text documents (smaller file size)
+- Ensure even lighting and clear text
+- Straighten pages before scanning
+- Use deskew features
+
+---
+
+### Query Best Practices
+
+**Effective Questioning**:
+1. **Be Specific**: Narrow questions get better answers
+2. **One Question at a Time**: Don't combine multiple unrelated queries
+3. **Use Context**: Reference previous answers in follow-ups
+4. **Request Formats**: Specify desired output format (list, table, paragraph)
+5. **Verify Answers**: Cross-check important information in the PDF
+
+**Query Examples - Good vs Bad**:
+
+**❌ Bad**: "Tell me about this"
+**✅ Good**: "Summarize the key findings in the conclusion section"
+
+**❌ Bad**: "Data?"
+**✅ Good**: "Extract the sales data from Table 2 and format as markdown"
+
+**❌ Bad**: "What does page 5 say about lots of things?"
+**✅ Good**: "What does page 5 say about revenue growth in Q3 2024?"
+
+---
+
+### Security & Privacy
+
+**Protecting Sensitive Documents**:
+1. **Review Privacy Policy**: Understand how documents are stored and processed
+2. **Use Encryption**: Ensure platform uses HTTPS and encrypted storage
+3. **Redact Sensitive Info**: Remove confidential data before upload
+4. **Delete After Use**: Remove documents from platform when no longer needed
+5. **Access Controls**: Use strong passwords and enable 2FA
+6. **Private Deployments**: Consider self-hosted solutions for highly sensitive data
+
+**Data Handling**:
+- Documents are typically stored temporarily for processing
+- Embeddings are stored for query retrieval
+- Check data retention policies
+- Request data deletion if needed
+- Use enterprise plans for advanced security features
+
+---
+
+### Workflow Efficiency
+
+**Streamlined Workflows**:
+1. **Create Templates**: Save common queries as templates
+2. **Batch Processing**: Upload and process multiple documents at once
+3. **Use Keyboard Shortcuts**: Learn shortcuts for faster navigation
+4. **Organize Documents**: Use clear naming and categorization
+5. **Export Insights**: Save important findings outside the platform
+
+**Collaboration**:
+- Share insights with team via export or sharing features
+- Use commenting/annotation features if available
+- Maintain consistency in query style across team
+- Document useful prompts and templates for reuse
+
+---
+
+### Continuous Improvement
+
+**Learning from Usage**:
+1. **Track What Works**: Note which query styles yield best results
+2. **Experiment**: Try different models and approaches
+3. **Provide Feedback**: Use thumbs up/down to improve AI responses
+4. **Stay Updated**: Check for new features and model updates
+5. **Community Engagement**: Share tips and learn from other users
+
+**Platform Updates**:
+- Review release notes for new features
+- Attend webinars or training sessions
+- Test beta features when available
+- Provide feedback to developers
+
+---
+
+## Conclusion
+
+ChatPDF transforms document interaction from passive reading to active, intelligent conversation. By understanding the complete workflow—from upload and processing to querying and knowledge management—you can maximize the value extracted from your documents.
+
+**Key Takeaways**:
+- Upload various document types with automatic OCR and indexing
+- Navigate PDFs seamlessly with integrated viewer
+- Select appropriate AI models for different tasks
+- Ask targeted, specific questions for best results
+- Manage knowledge bases efficiently
+- Troubleshoot common errors effectively
+- Optimize performance and resource usage
+- Follow best practices for security and efficiency
+
+**Next Steps**:
+1. Upload your first document
+2. Experiment with different query types
+3. Try various AI models
+4. Explore advanced features
+5. Share insights with your team
+
+For additional support, refer to the [FAQ](#), [Video Tutorials](#), or [Contact Support](#).
+
+---
+
+**Version**: 1.0
+**Last Updated**: January 31, 2026
+**Platform**: Nexva ChatPDF
+**Feedback**: Report issues or suggest improvements via the in-app feedback button.
+
+---
