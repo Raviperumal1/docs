@@ -50,6 +50,12 @@
         "features/prompt"
       ]
     },
+    {
+      "group": "Devices",
+      "pages": [
+        "mobile-devices/mobile-history"
+      ]
+    },
 
     {
       "group": "File and Document Management",
@@ -60,7 +66,7 @@
     {
       "group": "FAQs",
       "pages": [
-        "faq/advanced_credit-rules",
+        "faq/advanced-credit-rules",
         "faq/billing-and-payments",
         "faq/common-questions"
       ]
