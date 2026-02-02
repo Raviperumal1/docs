@@ -9,7 +9,6 @@ The feature uses linguistic analysis, statistical modeling, and machine-learned 
 
 This document explains the feature **from start to finish**, including workflow, detection logic, output interpretation, and API usage.
 
----
 
 ![content](/images/content_detection.png)
 
@@ -22,7 +21,6 @@ This document explains the feature **from start to finish**, including workflow,
 
 AI Content Detection is designed to assist decision-making, not replace human judgment.
 
----
 
 ## Supported Inputs
 
@@ -35,7 +33,6 @@ You can analyze content from the following sources:
 
 For best accuracy, provide at least **150 characters** of text.
 
----
 
 ## High-Level Workflow
 
@@ -47,7 +44,6 @@ For best accuracy, provide at least **150 characters** of text.
 6. Confidence aggregation
 7. Final classification
 
----
 
 ## Step 1: Text Preprocessing
 
@@ -61,7 +57,6 @@ Before detection begins, the system:
 
 This step ensures consistent and reliable analysis.
 
----
 
 ## Step 2: Linguistic Analysis
 
@@ -79,7 +74,6 @@ The system evaluates how the text is written.
 
 Human writing usually contains more variation and irregularity than AI-generated text.
 
----
 
 ## Step 3: Statistical Pattern Detection
 
@@ -91,7 +85,6 @@ Lower perplexity often indicates AI-generated content.
 Measures variation in sentence structure.
 Human writing tends to be uneven, while AI text is more uniform.
 
----
 
 ## Step 4: AI Probability Modeling
 
@@ -103,7 +96,6 @@ Detection models are trained using:
 
 Each model produces likelihood scores for AI-generated and human-written text.
 
----
 
 ## Step 5: Confidence Aggregation
 
@@ -116,18 +108,16 @@ Example output:
 
 Confidence levels are adjusted based on text length and detected edits.
 
----
 
 ## Final Classification Types
 
 | Classification | Description |
-|---------------|------------|
+|--------------|------------
 | ai_generated | Strong indicators of AI authorship |
 | human_written | Natural human writing patterns |
 | mixed | AI-generated text edited by a human |
 | uncertain | Insufficient evidence |
 
----
 
 ## Result Interpretation
 
@@ -138,6 +128,3 @@ Results are probabilistic and should be interpreted carefully.
 - Low confidence means insufficient or ambiguous data
 
 Detection accuracy decreases for short or heavily paraphrased text.
-
----
-

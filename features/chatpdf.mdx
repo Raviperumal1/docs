@@ -8,7 +8,6 @@ ChatPDF is an advanced document intelligence system that allows you to interact 
 
 This comprehensive guide covers the **complete workflow**, **interface components**, **advanced features**, **best practices**, and **troubleshooting**, exactly as implemented in the production interface.
 
----
 
 ## Table of Contents
 
@@ -26,7 +25,6 @@ This comprehensive guide covers the **complete workflow**, **interface component
 12. [Performance Optimization](#performance-optimization)
 13. [Best Practices](#best-practices)
 
----
 
 ## Overview & Capabilities
 
@@ -55,7 +53,6 @@ ChatPDF transforms static documents into interactive knowledge bases. The system
 - **Technical Documentation**: Navigate API docs, manuals, and specifications
 - **Content Creation**: Extract information for writing, blogging, and content development
 
----
 
 ## Interface Architecture
 
@@ -88,7 +85,6 @@ The ChatPDF interface consists of four primary components, each serving a specif
 
 **Functionality**: Primary navigation hub for switching between platform features and accessing account settings.
 
----
 
 ### 2. PDF Chats Panel (Middle-Left)
 
@@ -123,7 +119,6 @@ Each PDF chat entry displays:
 - Icon-based actions for cleaner UI
 - Hover states for interactive elements
 
----
 
 ### 3. PDF Document Viewer (Center)
 
@@ -156,7 +151,6 @@ Each PDF chat entry displays:
 - Responsive layout that adjusts to window size
 - Maintains aspect ratio of original document
 
----
 
 ### 4. Chat Interface Panel (Right)
 
@@ -200,7 +194,6 @@ Each PDF chat entry displays:
 - Responsive text sizing
 - Accessible controls
 
----
 
 ## Complete Workflow: Upload to Response
 
@@ -241,7 +234,6 @@ This section details the **end-to-end process** from uploading a document to rec
 - New entry appears in PDF Chats list
 - Automatic opening of document in viewer
 
----
 
 #### Phase 2: Document Processing & Indexing
 
@@ -314,7 +306,6 @@ Once uploaded, the system performs extensive processing to prepare the document 
 - Status messages: "Processing document...", "Generating embeddings...", "Building index..."
 - Estimated time remaining (for large documents)
 
----
 
 #### Phase 3: Chat Interaction
 
@@ -394,7 +385,6 @@ Once processing completes, users can begin chatting with the document.
 - Model capability: Sophistication of the selected AI model
 - Prompt engineering: Quality of system prompts
 
----
 
 #### Phase 4: Iterative Conversation
 
@@ -418,7 +408,6 @@ User: "Compare these two sections"
 AI: [Uses context from previous responses]
 ```
 
----
 
 #### Phase 5: Session Management
 
@@ -437,7 +426,6 @@ AI: [Uses context from previous responses]
   - Document file (optional, based on settings)
   - Session metadata
 
----
 
 ## Supported File Types & Content Sources
 
@@ -472,7 +460,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Annotations and comments
 - Bookmarks and table of contents
 
----
 
 #### DOCX (Microsoft Word)
 - **Text Extraction**: Full text with formatting
@@ -487,7 +474,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Formatting used to understand document structure
 - Tables often extracted better than in PDFs
 
----
 
 #### PPTX (Microsoft PowerPoint)
 - **Slide-by-Slide Processing**: Each slide treated as a section
@@ -501,7 +487,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Content extraction for reports
 - Educational material review
 
----
 
 #### TXT (Plain Text)
 - **Simple Processing**: Fastest format to index
@@ -515,7 +500,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Simple notes and documentation
 - CSV data (processed as text)
 
----
 
 ### Other Supported Sources
 
@@ -532,7 +516,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Wikipedia articles
 - Research repositories
 
----
 
 #### Images (OCR Support)
 - **Image Formats**: PNG, JPG, JPEG, WEBP, GIF
@@ -546,7 +529,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Photographs of text
 - Infographics
 
----
 
 #### Audio Files (Transcription)
 - **Audio Formats**: MP3, WAV, M4A, FLAC
@@ -560,7 +542,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Lecture recordings
 - Meeting notes
 
----
 
 #### Video Files (Transcription)
 - **Video Formats**: MP4, MOV, AVI, MKV
@@ -574,7 +555,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Tutorial videos
 - Documentary analysis
 
----
 
 ### File Size & Format Limits
 
@@ -592,7 +572,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - Enterprise plans have custom limits
 - Batch processing for multiple files
 
----
 
 ## Uploading & Processing Documents
 
@@ -618,7 +597,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 4. Click "Import"
 5. System scrapes and processes content
 
----
 
 ### Upload Process Details
 
@@ -640,7 +618,6 @@ ChatPDF supports various document formats and content sources, each processed wi
 - **Notification**: Success or error message displayed
 - **Auto-Open**: Document opens in viewer automatically
 
----
 
 ### Processing States
 
@@ -671,7 +648,6 @@ Users should understand the various processing states:
   - "Unsupported file format."
 - **Action**: Address error or try different file
 
----
 
 ### OCR Processing Details
 
@@ -711,7 +687,6 @@ For scanned PDFs and images, OCR (Optical Character Recognition) is critical:
 - Chinese (Simplified & Traditional), Japanese, Korean
 - Arabic, Russian, Hindi, and 90+ other languages
 
----
 
 ### Embedding Generation Explained
 
@@ -740,7 +715,6 @@ Embeddings are the core technology enabling semantic search:
 - Allow cross-lingual search (with multilingual models)
 - Improve retrieval accuracy over keyword search
 
----
 
 ## PDF Viewer & Navigation
 
@@ -762,7 +736,6 @@ The integrated PDF viewer provides a seamless document browsing experience along
 - **Table of Contents**: Access document TOC for quick navigation (if available)
 - **Search Within Document**: Find specific text (if supported)
 
----
 
 ### Navigation Controls
 
@@ -791,7 +764,6 @@ The integrated PDF viewer provides a seamless document browsing experience along
 - **Pinch**: Pinch to zoom in/out
 - **Double-Tap**: Zoom to section
 
----
 
 ### Zoom & View Options
 
@@ -807,7 +779,6 @@ The integrated PDF viewer provides a seamless document browsing experience along
 - **Two-Page Spread**: Two pages side-by-side (for books, magazines)
 - **Book View**: Mimic physical book with facing pages
 
----
 
 ### Document Information
 
@@ -820,7 +791,6 @@ Access document metadata:
 - **Modification Date**: Last modified timestamp
 - **PDF Version**: PDF standard version (e.g., PDF 1.7)
 
----
 
 ### Viewer Performance
 
@@ -836,7 +806,6 @@ Access document metadata:
 - Zoom out to improve scrolling performance
 - Close other applications to free up memory
 
----
 
 ## AI Model Selection & Configuration
 
@@ -915,7 +884,6 @@ The chat interface allows selection of different AI models, each with unique cap
   - Offline use
   - Custom deployments
 
----
 
 ### Model Selection Process
 
@@ -944,7 +912,6 @@ The chat interface allows selection of different AI models, each with unique cap
 - **Translation**: Medium to powerful models
 - **Code Extraction**: Powerful models for better accuracy
 
----
 
 ### Model Configuration Options
 
@@ -963,7 +930,6 @@ The chat interface allows selection of different AI models, each with unique cap
 - **Max Tokens**: 1000-2000 (for complete responses)
 - **Top P**: 0.9 (balanced)
 
----
 
 ## Chatting with Documents
 
@@ -988,7 +954,6 @@ Ask specific questions about document content.
 - Reference page numbers if known
 - Ask one question at a time for clarity
 
----
 
 #### 2. Summarization Requests
 Generate summaries of varying lengths and scopes.
@@ -1007,7 +972,6 @@ Generate summaries of varying lengths and scopes.
 - **Extractive**: Pulls key sentences directly from document
 - **Hierarchical**: Multi-level summaries (executive summary → detailed summary → full)
 
----
 
 #### 3. Data Extraction
 Extract specific information, tables, lists, or data points.
@@ -1026,7 +990,6 @@ Extract specific information, tables, lists, or data points.
 - Lists in bullet points or numbered format
 - JSON output for programmatic use
 
----
 
 #### 4. Translation
 Translate document content into different languages.
@@ -1045,7 +1008,6 @@ Translate document content into different languages.
 - Arabic, Russian, Hindi
 - And many more
 
----
 
 #### 5. Analysis & Insights
 Deeper analytical queries requiring reasoning.
@@ -1066,7 +1028,6 @@ Deeper analytical queries requiring reasoning.
 - Rhetorical analysis
 - Statistical interpretation
 
----
 
 #### 6. Comparison Queries
 Compare sections or multiple documents.
@@ -1084,7 +1045,6 @@ Compare sections or multiple documents.
 - "Which report has more positive findings?"
 ```
 
----
 
 #### 7. Creative & Transformative Tasks
 Repurpose or transform document content.
@@ -1098,7 +1058,6 @@ Repurpose or transform document content.
 - "Draft a social media post about this research"
 ```
 
----
 
 ### Query Formatting Tips
 
@@ -1122,7 +1081,6 @@ Repurpose or transform document content.
     Then: "Extract all tables"
     Finally: "Translate the summary to Spanish"
 
----
 
 ### Understanding AI Responses
 
@@ -1150,7 +1108,6 @@ Honest acknowledgment when information is not in the document:
 - "This information is not found in the document"
 - "The document doesn't specify..."
 
----
 
 ### Follow-Up Conversations
 
@@ -1176,7 +1133,6 @@ AI: [Looks for prior quarter data in the document]
 - Can reference "earlier findings" or "as mentioned above"
 - Maintains coherent multi-turn dialogues
 
----
 
 ### Response Quality & Accuracy
 
@@ -1204,7 +1160,6 @@ AI: [Looks for prior quarter data in the document]
 - Try a more powerful AI model
 - Ask for clarification or elaboration
 
----
 
 ## Knowledge Base Management
 
@@ -1226,7 +1181,6 @@ Manage your PDF chats, sessions, and knowledge bases efficiently.
 - Sort by date, name, or size
 - Tag or categorize documents (if supported)
 
----
 
 ### Switching Between Documents
 
@@ -1241,7 +1195,6 @@ Manage your PDF chats, sessions, and knowledge bases efficiently.
 - Compare documents side-by-side
 - Switch between contexts easily
 
----
 
 ### Deleting PDF Chats
 
@@ -1267,7 +1220,6 @@ Manage your PDF chats, sessions, and knowledge bases efficiently.
 - Download critical insights or summaries
 - Maintain local backups of important PDFs
 
----
 
 ### Bulk Operations (if supported)
 
@@ -1286,7 +1238,6 @@ Manage your PDF chats, sessions, and knowledge bases efficiently.
 - Save for records or sharing
 - Include or exclude AI responses
 
----
 
 ### Storage & Limits
 
@@ -1305,7 +1256,6 @@ Manage your PDF chats, sessions, and knowledge bases efficiently.
 - Archive important documents locally
 - Upgrade plan if consistently hitting limits
 
----
 
 ## Advanced Features & Use Cases
 
@@ -1334,7 +1284,6 @@ Some systems allow querying multiple documents simultaneously.
 - Multi-quarter financial analysis
 - Cross-referencing academic papers
 
----
 
 ### Table Extraction & Analysis
 
@@ -1362,7 +1311,6 @@ ChatPDF can identify, extract, and format tables from PDFs.
 - "Summarize trends in the financial table"
 ```
 
----
 
 ### Code & Formula Extraction
 
@@ -1384,7 +1332,6 @@ For scientific or mathematical documents:
 - "Explain the formula on page 45"
 ```
 
----
 
 ### Citation & Reference Management
 
@@ -1402,7 +1349,6 @@ For scientific or mathematical documents:
 - "What sources does the author cite?"
 ```
 
----
 
 ### Custom Prompts & Templates
 
@@ -1421,7 +1367,6 @@ Save frequently used query templates:
 - Quick access to templates
 - Share prompts with team members
 
----
 
 ### Collaboration Features (if available)
 
@@ -1435,7 +1380,6 @@ Save frequently used query templates:
 - Collaborative document analysis
 - Team annotations and comments
 
----
 
 ### API & Integration
 
@@ -1451,7 +1395,6 @@ Save frequently used query templates:
 - Slack: Share insights in channels
 - Notion: Embed document chats
 
----
 
 ## Error Handling & Troubleshooting
 
@@ -1473,7 +1416,6 @@ Save frequently used query templates:
 - Ensure network connectivity between application and Chroma
 - Review Chroma server logs for errors
 
----
 
 #### 2. "File too large. Please upgrade your plan."
 
@@ -1490,7 +1432,6 @@ Save frequently used query templates:
 - Be aware of your plan's limits
 - Use appropriate tier for your needs
 
----
 
 #### 3. "Unsupported file format"
 
@@ -1506,7 +1447,6 @@ Save frequently used query templates:
 - Images → PDF: Use online converters or imaging software
 - Web Pages → PDF: Print to PDF from browser
 
----
 
 #### 4. "OCR failed. Unable to extract text from scanned PDF."
 
@@ -1519,7 +1459,6 @@ Save frequently used query templates:
 - **Pre-Process Image**: Use image editing software to enhance quality
 - **Alternative OCR**: Use external OCR tool (Adobe Acrobat, Tesseract) then upload result
 
----
 
 #### 5. "Processing timeout. Document is too complex."
 
@@ -1531,7 +1470,6 @@ Save frequently used query templates:
 - **Retry During Off-Peak**: Process during low-traffic times
 - **Contact Support**: For critical documents, request manual processing
 
----
 
 #### 6. "Rate limit exceeded. Please try again later."
 
@@ -1542,7 +1480,6 @@ Save frequently used query templates:
 - **Reduce Frequency**: Space out uploads and queries
 - **Upgrade Plan**: Higher tiers often have increased rate limits
 
----
 
 #### 7. "Unable to retrieve context. Document may not be indexed."
 
@@ -1554,7 +1491,6 @@ Save frequently used query templates:
 - **Check Status**: Verify document shows "Ready" status
 - **Clear Cache**: Clear browser cache and refresh
 
----
 
 ### Debugging Tips
 
@@ -1579,7 +1515,6 @@ Save frequently used query templates:
 4. **Try Incognito**: Use incognito/private browsing mode
 5. **Different Device**: Test on another device or network
 
----
 
 ### Getting Help
 
@@ -1603,7 +1538,6 @@ Save frequently used query templates:
 - **Browser/Device**: Your browser version, OS, device type
 - **Account Info**: Your username or account email
 
----
 
 ## Performance Optimization
 
@@ -1621,7 +1555,6 @@ Save frequently used query templates:
 - **Close Background Apps**: Stop other downloads/uploads
 - **Browser Cache**: Enable caching for faster re-access
 
----
 
 ### Optimizing Query Performance
 
@@ -1635,7 +1568,6 @@ Save frequently used query templates:
 - **Page-Specific Queries**: "What's on page 5?" is faster than "Summarize the document"
 - **Focused Context**: Ask about specific sections rather than entire document
 
----
 
 ### Managing Resource Usage
 
@@ -1650,7 +1582,6 @@ Save frequently used query templates:
 - **Connection Stability**: Maintain stable connection during processing
 - **Avoid Concurrent Uploads**: Upload one document at a time
 
----
 
 ## Best Practices
 
@@ -1670,7 +1601,6 @@ Save frequently used query templates:
 - Straighten pages before scanning
 - Use deskew features
 
----
 
 ### Query Best Practices
 
@@ -1692,7 +1622,6 @@ Save frequently used query templates:
 **❌ Bad**: "What does page 5 say about lots of things?"
 **✅ Good**: "What does page 5 say about revenue growth in Q3 2024?"
 
----
 
 ### Security & Privacy
 
@@ -1711,7 +1640,6 @@ Save frequently used query templates:
 - Request data deletion if needed
 - Use enterprise plans for advanced security features
 
----
 
 ### Workflow Efficiency
 
@@ -1728,7 +1656,6 @@ Save frequently used query templates:
 - Maintain consistency in query style across team
 - Document useful prompts and templates for reuse
 
----
 
 ### Continuous Improvement
 
@@ -1745,7 +1672,6 @@ Save frequently used query templates:
 - Test beta features when available
 - Provide feedback to developers
 
----
 
 ## Conclusion
 
@@ -1770,11 +1696,9 @@ ChatPDF transforms document interaction from passive reading to active, intellig
 
 For additional support, refer to the [FAQ](#), [Video Tutorials](#), or [Contact Support](#).
 
----
 
 **Version**: 1.0
 **Last Updated**: January 31, 2026
 **Platform**: Nexva ChatPDF
 **Feedback**: Report issues or suggest improvements via the in-app feedback button.
 
----
