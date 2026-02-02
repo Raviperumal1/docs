@@ -13,7 +13,6 @@ This document explains the **full internal workflow**:
 - How audio transcription works
 - How free and paid plans are handled
 
----
 
 ## What Is an Advanced Query
 
@@ -21,7 +20,6 @@ An Advanced Query is automatically triggered when a request requires **additiona
 
 These operations consume **Advanced Query Credits**.
 
----
 
 ## High-Level Advanced Query Workflow
 
@@ -34,7 +32,6 @@ These operations consume **Advanced Query Credits**.
 7. Output is generated and returned
 8. Usage is logged and displayed in settings
 
----
 
 ## Step 1: User Input Types
 
@@ -49,7 +46,6 @@ Advanced Queries may be triggered by the following inputs:
 
 Simple text chat does **not** trigger Advanced Queries.
 
----
 
 ## Step 2: Advanced Query Detection Logic
 
@@ -67,7 +63,6 @@ Nexva evaluates the request using multiple signals:
 
 If **any** of these are required, the query is classified as advanced.
 
----
 
 ## What Does NOT Trigger an Advanced Query
 
@@ -84,7 +79,6 @@ The following remain **free standard chat**:
 
 These cost **0 credits**.
 
----
 
 ## Step 3: Credit Eligibility Check
 
@@ -97,7 +91,6 @@ Once classified as advanced, the system checks:
 
 If credits are available, execution proceeds.
 
----
 
 ## Free User Credit Allocation
 
@@ -111,7 +104,6 @@ If daily credits are exhausted:
 - Advanced features pause
 - Standard chat remains available
 
----
 
 ## Step 4: Token Counting Logic
 
@@ -136,7 +128,6 @@ Tokens represent the **computational cost** of processing text, audio, or files.
 
 Both input and output tokens contribute to total usage.
 
----
 
 ## Token Counting Example
 
@@ -151,7 +142,6 @@ Total tokens processed:
 
 This triggers **1 Advanced Query credit**.
 
----
 
 ## Step 5: Audio Transcription Workflow
 
@@ -176,7 +166,6 @@ Example:
 
 Consumes **1 Advanced Query credit** per transcription task.
 
----
 
 ## Step 6: Credit Deduction Rules
 
@@ -191,7 +180,6 @@ Consumes **1 Advanced Query credit** per transcription task.
 
 Exceptions apply only to batch or repeated operations.
 
----
 
 ## Batch Operations
 
@@ -203,7 +191,6 @@ Uploading multiple files or running multiple tasks may result in:
 Example:
 - Uploading 3 PDFs separately = up to 3 credits
 
----
 
 ## Step 7: Execution and Output
 
@@ -219,7 +206,6 @@ Execution time depends on:
 - Model complexity
 - Tool usage
 
----
 
 ## Step 8: Usage Tracking and Visibility
 
@@ -234,31 +220,28 @@ Displayed information includes:
 - Reset date
 - Historical consumption
 
----
 
 ## Subscription Plan Credit Allocation
 
 | Plan | Advanced Credits |
-|-----|------------------|
+|-|
 | Free | 100 per day |
 | Pro | 200 per month |
 | Unlimited | 4,500 per month |
 
 Unlimited plans are subject to fair-use limits.
 
----
 
 ## Add-On Credit Purchases
 
 | Credits | Price |
-|-------|-------|
+|||
 | 4,000 | US$10 |
 | 12,000 | US$30 |
 | 40,000 | US$100 |
 
 Purchased credits never expire during an active subscription.
 
----
 
 ## Best Practices to Optimize Credits
 
@@ -268,7 +251,6 @@ Purchased credits never expire during an active subscription.
 - Split large documents into sections
 - Use standard chat whenever possible
 
----
 
 ## Common Questions
 
@@ -284,7 +266,6 @@ No. Tokens are counted per request. Credits reset based on plan.
 ### What happens when credits run out?
 Advanced features pause. Standard chat continues.
 
----
 
 ## Summary
 
@@ -297,6 +278,5 @@ Advanced Queries power Nexva’s most capable features:
 
 Understanding how credits and tokens work helps you **maximize value and avoid unnecessary usage**.
 
----
 
 Last updated: November 25, 2025
