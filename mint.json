@@ -32,7 +32,8 @@
       "pages": [
         "get-started/what_is_nexva",
         "get-started/how_to_signup",
-        "get-started/account"
+        "get-started/account",
+        "get-started/sidebar"
       ]
     },
     {
