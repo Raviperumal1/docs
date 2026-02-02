@@ -51,6 +51,12 @@
       ]
     },
     {
+      "group": "Device",
+      "pages": [
+        "mobil-devices/chat_history"
+      ]
+    },
+    {
       "group": "File and Document Management",
       "pages": [
         "file-format/supported_docs"
