@@ -30,8 +30,8 @@
     {
       "group": "Get Started",
       "pages": [
-        "get-started/what_is_nexva",
-        "get-started/how_to_signup",
+        "get-started/what-is-nexva",
+        "get-started/how-to-signup",
         "get-started/account",
         "get-started/sidebar"
       ]
@@ -41,46 +41,41 @@
       "pages": [
         "features/chat",
         "features/chatpdf",
-        "features/ai_models",
-        "features/math_solver",
-        "features/video_generation",
-        "features/image_generation",
-        "features/content_detection",
+        "features/ai-models",
+        "features/math-solver",
+        "features/video-generation",
+        "features/image-generation",
+        "features/content-detection",
         "features/humanizer",
         "features/prompt"
       ]
     },
-    {
-      "group": "Device",
-      "pages": [
-        "mobil-devices/chat_history"
-      ]
-    },
+
     {
       "group": "File and Document Management",
       "pages": [
-        "file-format/supported_docs"
+        "file-format/supported-docs"
       ]
     },
     {
       "group": "FAQs",
       "pages": [
-        "faq/advanced_credit_rules",
-        "faq/billing_and_payments",
-        "faq/common_questions"
+        "faq/advanced_credit-rules",
+        "faq/billing-and-payments",
+        "faq/common-questions"
       ]
     },
 
     {
       "group": "Contact",
       "pages": [
-        "contact/contact_and_support"
+        "contact/contact-and-support"
       ]
     },
     {
       "group": "Data-Privacy",
       "pages": [
-        "data-privacy/data_security_and_privacy"
+        "data-privacy/data-security-and-privacy"
       ]
     }
   ]
